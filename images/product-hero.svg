@@ -1,43 +1,103 @@
-<svg width="1080" height="1080" xmlns="http://www.w3.org/2000/svg">
+<svg width="1920" height="1080" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" style="stop-color:#F0FDF4;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#F9FAFB;stop-opacity:1" />
       <stop offset="100%" style="stop-color:#DBEAFE;stop-opacity:1" />
     </linearGradient>
-    <linearGradient id="packageGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+    <linearGradient id="productGradient" x1="0%" y1="0%" x2="0%" y2="100%">
       <stop offset="0%" style="stop-color:#34D399;stop-opacity:1" />
       <stop offset="100%" style="stop-color:#10B981;stop-opacity:1" />
     </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="20" stdDeviation="15" flood-opacity="0.15"/>
+    </filter>
   </defs>
 
-  <!-- Background -->
-  <rect width="1080" height="1080" fill="url(#bgGradient)"/>
+  <!-- Background gradient -->
+  <rect width="1920" height="1080" fill="url(#bgGradient)"/>
 
-  <!-- Shadow circle -->
-  <ellipse cx="540" cy="850" rx="300" ry="80" fill="#10B98120"/>
+  <!-- Subtle circles in background -->
+  <circle cx="150" cy="200" r="200" fill="#10B98110" />
+  <circle cx="1800" cy="900" r="300" fill="#3B82F610" />
 
-  <!-- Product package -->
-  <g transform="translate(540, 450)">
-    <!-- Main package shape -->
-    <rect x="-180" y="-250" width="360" height="500" rx="20" fill="url(#packageGradient)" stroke="#059669" stroke-width="3"/>
+  <!-- Product Package (Left 60%) -->
+  <g transform="translate(400, 340)" filter="url(#shadow)">
+    <!-- Main envelope packet -->
+    <rect x="0" y="0" width="480" height="400" rx="30" fill="url(#productGradient)" stroke="#059669" stroke-width="2"/>
 
-    <!-- Package top highlight -->
-    <rect x="-180" y="-250" width="360" height="80" rx="20" fill="#10B981" stroke="none"/>
+    <!-- Top section white -->
+    <rect x="0" y="0" width="480" height="120" rx="30" fill="#FFFFFF" opacity="0.95"/>
 
-    <!-- Ohana logo/text area -->
-    <rect x="-150" y="-200" width="300" height="60" rx="10" fill="#FFFFFF" opacity="0.9" stroke="none"/>
+    <!-- Logo area -->
+    <rect x="30" y="20" width="420" height="80" rx="15" fill="none" stroke="#10B981" stroke-width="2"/>
 
-    <!-- Energy icon circles -->
-    <circle cx="-80" cy="0" r="40" fill="#F59E0B" opacity="0.3"/>
-    <circle cx="0" cy="30" r="35" fill="#3B82F6" opacity="0.3"/>
-    <circle cx="80" cy="-10" r="38" fill="#10B981" opacity="0.2"/>
+    <!-- Ohana text -->
+    <text x="240" y="75" font-size="48" font-weight="bold" text-anchor="middle" fill="#10B981" font-family="Arial, sans-serif">OHANA</text>
+
+    <!-- Energy badge -->
+    <circle cx="420" cy="180" r="45" fill="#F59E0B" opacity="0.9"/>
+    <text x="420" y="190" font-size="20" font-weight="bold" text-anchor="middle" fill="#FFFFFF" font-family="Arial, sans-serif">ENERGY</text>
+
+    <!-- Feature icons -->
+    <g transform="translate(60, 260)">
+      <circle cx="40" cy="40" r="35" fill="#10B981" opacity="0.2"/>
+      <text x="40" y="50" font-size="32" text-anchor="middle" fill="#10B981">✓</text>
+      <text x="40" y="100" font-size="14" text-anchor="middle" fill="#1F2937" font-family="Arial" font-weight="bold">48 horas</text>
+    </g>
+
+    <g transform="translate(220, 260)">
+      <circle cx="40" cy="40" r="35" fill="#3B82F6" opacity="0.2"/>
+      <text x="40" y="50" font-size="32" text-anchor="middle" fill="#3B82F6">⚡</text>
+      <text x="40" y="100" font-size="14" text-anchor="middle" fill="#1F2937" font-family="Arial" font-weight="bold">6+ horas</text>
+    </g>
+
+    <g transform="translate(380, 260)">
+      <circle cx="40" cy="40" r="35" fill="#F59E0B" opacity="0.2"/>
+      <text x="40" y="50" font-size="32" text-anchor="middle" fill="#F59E0B">🌿</text>
+      <text x="40" y="100" font-size="14" text-anchor="middle" fill="#1F2937" font-family="Arial" font-weight="bold">100% Natural</text>
+    </g>
 
     <!-- Shine effect -->
-    <rect x="-160" y="-230" width="60" height="200" rx="10" fill="#FFFFFF" opacity="0.15" stroke="none"/>
+    <rect x="20" y="10" width="80" height="200" rx="15" fill="#FFFFFF" opacity="0.2"/>
   </g>
 
-  <!-- Text content -->
-  <text x="540" y="300" font-size="72" font-weight="bold" text-anchor="middle" fill="#10B981" font-family="Arial, sans-serif">OHANA</text>
-  <text x="540" y="380" font-size="40" text-anchor="middle" fill="#3B82F6" font-family="Arial, sans-serif">ENERGY</text>
-  <text x="540" y="920" font-size="28" text-anchor="middle" fill="#1F2937" font-family="Arial, sans-serif">Energía Real sin Crash en 48 Horas</text>
+  <!-- Right Section (40% for copy) -->
+  <g transform="translate(1000, 200)">
+    <!-- Headline -->
+    <text x="0" y="60" font-size="64" font-weight="bold" fill="#1F2937" font-family="Arial, sans-serif">
+      Energía Real
+    </text>
+    <text x="0" y="130" font-size="64" font-weight="bold" fill="#10B981" font-family="Arial, sans-serif">
+      Sin Crash
+    </text>
+
+    <!-- Subheadline -->
+    <text x="0" y="200" font-size="28" fill="#4B5563" font-family="Arial, sans-serif">
+      En 48 horas sientes
+    </text>
+    <text x="0" y="235" font-size="28" fill="#4B5563" font-family="Arial, sans-serif">
+      la diferencia
+    </text>
+
+    <!-- Benefits list -->
+    <g transform="translate(0, 320)">
+      <text x="0" y="0" font-size="18" fill="#1F2937" font-family="Arial, sans-serif" font-weight="bold">✓ Energía sostenida 6+ horas</text>
+      <text x="0" y="40" font-size="18" fill="#1F2937" font-family="Arial, sans-serif" font-weight="bold">✓ Clareza mental + concentración</text>
+      <text x="0" y="80" font-size="18" fill="#1F2937" font-family="Arial, sans-serif" font-weight="bold">✓ Sin cafeína, sin ansiedad</text>
+    </g>
+
+    <!-- CTA -->
+    <rect x="0" y="520" width="400" height="60" rx="12" fill="#10B981"/>
+    <text x="200" y="560" font-size="24" font-weight="bold" text-anchor="middle" fill="#FFFFFF" font-family="Arial, sans-serif">
+      Prueba 30 Días Gratis
+    </text>
+  </g>
+
+  <!-- Trust badge bottom right -->
+  <g transform="translate(1200, 900)">
+    <circle cx="0" cy="0" r="60" fill="#10B981" opacity="0.1"/>
+    <text x="0" y="-15" font-size="14" text-anchor="middle" fill="#10B981" font-family="Arial, sans-serif" font-weight="bold">1,247</text>
+    <text x="0" y="10" font-size="12" text-anchor="middle" fill="#10B981" font-family="Arial, sans-serif">usuarios activos</text>
+  </g>
 </svg>
