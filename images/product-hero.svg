@@ -1,0 +1,43 @@
+<svg width="1080" height="1080" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#F0FDF4;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#DBEAFE;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="packageGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#34D399;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#10B981;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1080" height="1080" fill="url(#bgGradient)"/>
+
+  <!-- Shadow circle -->
+  <ellipse cx="540" cy="850" rx="300" ry="80" fill="#10B98120"/>
+
+  <!-- Product package -->
+  <g transform="translate(540, 450)">
+    <!-- Main package shape -->
+    <rect x="-180" y="-250" width="360" height="500" rx="20" fill="url(#packageGradient)" stroke="#059669" stroke-width="3"/>
+
+    <!-- Package top highlight -->
+    <rect x="-180" y="-250" width="360" height="80" rx="20" fill="#10B981" stroke="none"/>
+
+    <!-- Ohana logo/text area -->
+    <rect x="-150" y="-200" width="300" height="60" rx="10" fill="#FFFFFF" opacity="0.9" stroke="none"/>
+
+    <!-- Energy icon circles -->
+    <circle cx="-80" cy="0" r="40" fill="#F59E0B" opacity="0.3"/>
+    <circle cx="0" cy="30" r="35" fill="#3B82F6" opacity="0.3"/>
+    <circle cx="80" cy="-10" r="38" fill="#10B981" opacity="0.2"/>
+
+    <!-- Shine effect -->
+    <rect x="-160" y="-230" width="60" height="200" rx="10" fill="#FFFFFF" opacity="0.15" stroke="none"/>
+  </g>
+
+  <!-- Text content -->
+  <text x="540" y="300" font-size="72" font-weight="bold" text-anchor="middle" fill="#10B981" font-family="Arial, sans-serif">OHANA</text>
+  <text x="540" y="380" font-size="40" text-anchor="middle" fill="#3B82F6" font-family="Arial, sans-serif">ENERGY</text>
+  <text x="540" y="920" font-size="28" text-anchor="middle" fill="#1F2937" font-family="Arial, sans-serif">Energía Real sin Crash en 48 Horas</text>
+</svg>
