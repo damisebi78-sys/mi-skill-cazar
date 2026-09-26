@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ohana Energy - Energía Real sin Crash</title>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0], j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id=GTM-XXXXXXX'+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
+    <!-- Meta Pixel / Facebook -->
+    <script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init', 'YOUR_FACEBOOK_PIXEL_ID');fbq('track', 'PageView');</script>
+    <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=YOUR_FACEBOOK_PIXEL_ID&ev=PageView&noscript=1"/></noscript>
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-XXXXXXXXXX');</script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#10B981',
+                        secondary: '#3B82F6',
+                        accent: '#F59E0B',
+                        dark: '#1F2937',
+                        light: '#F9FAFB'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+        .hero-gradient { background: linear-gradient(135deg, #ffffff 0%, #f0fdf4 100%); }
+        .cta-button { transition: all 0.3s ease-in-out; }
+        .cta-button:hover { transform: scale(1.05); box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3); }
+        .fade-in { animation: fadeIn 0.6s ease-in-out; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        .counter { font-weight: 700; color: #10B981; }
+    </style>
+</head>
+<body class="bg-white text-dark font-sans">
+    <!-- HEADER / NAVBAR -->
+    <header class="sticky top-0 z-50 bg-white border-b border-gray-100 shadow-sm">
+        <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center text-white font-bold text-lg">O</div>
+                <span class="font-bold text-xl text-dark">Ohana</span>
+            </div>
+            <div class="hidden md:flex gap-8 text-sm">
+                <a href="#problema" class="hover:text-primary transition">Problema</a>
+                <a href="#solucion" class="hover:text-primary transition">Solución</a>
+                <a href="#testimonios" class="hover:text-primary transition">Testimonios</a>
+                <a href="#faq" class="hover:text-primary transition">Preguntas</a>
+            </div>
+            <a href="#hero-cta" class="bg-primary text-white px-6 py-2 rounded-lg text-sm font-semibold hover:bg-opacity-90 transition">
+                Prueba Gratis
+            </a>
+        </nav>
+    </header>
+
+    <!-- ========================================
+         SECCIÓN 1: HERO / ABOVE THE FOLD
+         ======================================== -->
+    <section id="hero" class="hero-gradient py-12 md:py-20">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+                <!-- HERO TEXT -->
+                <div class="order-2 md:order-1">
+                    <h1 class="text-4xl md:text-5xl font-bold mb-4 leading-tight">
+                        ¿Cansado a las <span class="text-primary">3pm</span>?
+                    </h1>
+                    <p class="text-xl md:text-2xl text-gray-600 mb-6 font-light">
+                        Tu cuerpo te lo está pidiendo.
+                    </p>
+                    <p class="text-lg text-gray-700 mb-8">
+                        Energía natural sin crash en 48 horas. Probá Ohana durante 30 días gratis — sin tarjeta de crédito.
+                    </p>
+
+                    <!-- CTA FORM -->
+                    <div id="hero-cta" class="bg-white border-2 border-primary rounded-xl p-6 md:p-8 shadow-lg mb-8">
+                        <div class="flex items-center gap-2 mb-4 text-sm font-semibold text-primary">
+                            <span class="text-xl">✅</span>
+                            <span>PRUEBA 30 DÍAS GRATIS + ENVÍO</span>
+                        </div>
+                        <form id="heroForm" class="space-y-4" onsubmit="handleFormSubmit(event, 'hero')">
+                            <input
+                                type="email"
+                                id="heroEmail"
+                                placeholder="Tu email"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-primary text-sm"
+                                required
+                            >
+                            <button
+                                type="submit"
+                                id="heroButton"
+                                class="cta-button w-full bg-primary hover:bg-opacity-90 text-white font-bold py-3 px-6 rounded-lg text-base md:text-lg transition duration-300 uppercase tracking-wide"
+                            >
+                                Sí, Quiero Mi Prueba Gratis
+                            </button>
+                        </form>
+                        <div id="formMessage" class="mt-3 text-xs text-green-600 hidden"></div>
+                        <div class="mt-4 space-y-2 text-xs text-gray-600">
+                            <p class="flex items-center gap-2"><span>📍</span> Sin tarjeta de crédito</p>
+                            <p class="flex items-center gap-2"><span>📍</span> Cancela en cualquier momento</p>
+                        </div>
+                    </div>
+
+                    <!-- TRUST SIGNALS -->
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-2">
+                            <span class="text-2xl">⭐⭐⭐⭐⭐</span>
+                            <div>
+                                <p class="text-sm font-semibold text-gray-800"><span class="counter">1,247</span> usuarios activos</p>
+                                <p class="text-xs text-gray-600">Portugal, Italia y Francia</p>
+                            </div>
+                        </div>
+                        <div class="text-sm text-gray-700 italic">
+                            "Cambié mi vida en 3 semanas" — <strong>María, 42 años</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- HERO IMAGE -->
+                <div class="order-1 md:order-2">
+                    <img src="images/product-hero.png" alt="Ohana Energy - Energía Real" class="rounded-2xl w-full h-auto shadow-lg object-cover aspect-video" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         SECCIÓN 2: PROBLEMA + AGITACIÓN
+         ======================================== -->
+    <section id="problema" class="py-16 md:py-24 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <!-- PROBLEM IMAGE -->
+                <div class="order-2 md:order-1">
+                    <div class="bg-gray-100 rounded-2xl aspect-square flex items-center justify-center">
+                        <div class="text-center text-gray-400">
+                            <p class="text-sm mb-2">😴 Imagen Problema</p>
+                            <p class="text-xs">(Persona cansada mirando reloj)</p>
+                            <p class="text-xs">600x600px recomendado</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PROBLEM TEXT -->
+                <div class="order-1 md:order-2">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6">¿Esto te suena familiar?</h2>
+
+                    <div class="space-y-3 mb-8">
+                        <div class="flex gap-3 items-start">
+                            <span class="text-xl flex-shrink-0">❌</span>
+                            <p class="text-gray-700">Trabajás 8 horas pero a las 3pm te caés de cansancio</p>
+                        </div>
+                        <div class="flex gap-3 items-start">
+                            <span class="text-xl flex-shrink-0">❌</span>
+                            <p class="text-gray-700">Intentás café pero después viene el crash mental</p>
+                        </div>
+                        <div class="flex gap-3 items-start">
+                            <span class="text-xl flex-shrink-0">❌</span>
+                            <p class="text-gray-700">Necesitás energía real, no química adictiva</p>
+                        </div>
+                        <div class="flex gap-3 items-start">
+                            <span class="text-xl flex-shrink-0">❌</span>
+                            <p class="text-gray-700">Querés concentración sin ansiedad ni insomnio</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-orange-50 border-l-4 border-accent p-6 rounded">
+                        <p class="text-gray-800 mb-3">
+                            <strong>Sabemos que es frustrante. Llevás años así.</strong>
+                        </p>
+                        <p class="text-gray-700 mb-3">
+                            Cansancio constante no es normal. Es tu cuerpo pidiendo nutrientes que le faltan.
+                        </p>
+                        <p class="text-gray-700">
+                            El café solo no alcanza. La falta de sueño es la punta del iceberg.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         SECCIÓN 3: SOLUCIÓN + BENEFICIOS
+         ======================================== -->
+    <section id="solucion" class="py-16 md:py-24 bg-gradient-to-br from-primary/5 to-secondary/5">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-12 items-center mb-16">
+                <!-- PRODUCT IMAGE -->
+                <div class="order-1">
+                    <div class="bg-white rounded-2xl aspect-square flex items-center justify-center shadow-lg">
+                        <div class="text-center text-gray-400">
+                            <p class="text-sm mb-2">🟢 Producto Ohana</p>
+                            <p class="text-xs">(Packaging hermoso y profesional)</p>
+                            <p class="text-xs">600x600px recomendado</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SOLUTION TEXT -->
+                <div class="order-2">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">Energía que REALMENTE dura</h2>
+                    <p class="text-lg text-gray-700 mb-6">
+                        Ohana es la fórmula que tu cuerpo pedía.
+                    </p>
+                    <p class="text-gray-700 mb-8 leading-relaxed">
+                        Adaptógenos naturales + B-Complex + Magnesio de absorción rápida que activan tu energía celular sin crash. <strong>No es cafeína disfrazada. Es nutrición real.</strong>
+                    </p>
+
+                    <div class="space-y-3 mb-8">
+                        <div class="flex gap-3 items-start">
+                            <span class="text-xl text-primary flex-shrink-0">✅</span>
+                            <p class="text-gray-800"><strong>48 horas</strong> para sentir la diferencia</p>
+                        </div>
+                        <div class="flex gap-3 items-start">
+                            <span class="text-xl text-primary flex-shrink-0">✅</span>
+                            <p class="text-gray-800">Energía sostenida <strong>6+ horas</strong> (sin caída)</p>
+                        </div>
+                        <div class="flex gap-3 items-start">
+                            <span class="text-xl text-primary flex-shrink-0">✅</span>
+                            <p class="text-gray-800">Clareza mental + concentración</p>
+                        </div>
+                        <div class="flex gap-3 items-start">
+                            <span class="text-xl text-primary flex-shrink-0">✅</span>
+                            <p class="text-gray-800">Sin cafeína, sin ansiedad, sin insomnio</p>
+                        </div>
+                        <div class="flex gap-3 items-start">
+                            <span class="text-xl text-primary flex-shrink-0">✅</span>
+                            <p class="text-gray-800">Fórmula <strong>100% natural</strong></p>
+                        </div>
+                    </div>
+
+                    <div class="bg-blue-50 p-6 rounded-lg">
+                        <h3 class="font-bold text-gray-800 mb-4">¿Cómo funciona?</h3>
+                        <div class="space-y-2 text-sm text-gray-700">
+                            <p><strong>1️⃣ Adaptógenos</strong> calman tu cortisol (estrés)</p>
+                            <p><strong>2️⃣ B-Complex</strong> activa tu metabolismo energético</p>
+                            <p><strong>3️⃣ Magnesio</strong> relaja sin adormecerte</p>
+                            <p><strong>4️⃣ Resultado:</strong> En 48-72 horas: energía real, sostenida, sin crash</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         SECCIÓN 4: TESTIMONIOS
+         ======================================== -->
+    <section id="testimonios" class="py-16 md:py-24 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-3">Lo que dicen nuestros usuarios</h2>
+                <p class="text-gray-600">Miles de personas ya transformaron su energía</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- TESTIMONIO 1 -->
+                <div class="bg-gray-50 rounded-xl overflow-hidden hover:shadow-lg transition">
+                    <div class="bg-gray-200 h-48 flex items-center justify-center">
+                        <div class="text-center text-gray-400">
+                            <p class="text-sm">📷 Foto María</p>
+                            <p class="text-xs">400x300px</p>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex gap-1 mb-3">
+                            <span class="text-lg">⭐</span>
+                            <span class="text-lg">⭐</span>
+                            <span class="text-lg">⭐</span>
+                            <span class="text-lg">⭐</span>
+                            <span class="text-lg">⭐</span>
+                        </div>
+                        <p class="text-gray-800 mb-4 italic font-light leading-relaxed">
+                            "Cambié mi vida en 3 semanas. Ahora trabajo 10 horas sin cansancio. Mi familia dice que soy otra persona."
+                        </p>
+                        <p class="font-bold text-gray-900">María García, 42</p>
+                        <p class="text-sm text-gray-600">Lisboa, Portugal • Abogada</p>
+                    </div>
+                </div>
+
+                <!-- TESTIMONIO 2 -->
+                <div class="bg-gray-50 rounded-xl overflow-hidden hover:shadow-lg transition">
+                    <div class="bg-gray-200 h-48 flex items-center justify-center">
+                        <div class="text-center text-gray-400">
+                            <p class="text-sm">📷 Foto Paolo</p>
+                            <p class="text-xs">400x300px</p>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex gap-1 mb-3">
+                            <span class="text-lg">⭐</span>
+                            <span class="text-lg">⭐</span>
+                            <span class="text-lg">⭐</span>
+                            <span class="text-lg">⭐</span>
+                            <span class="text-lg">⭐</span>
+                        </div>
+                        <p class="text-gray-800 mb-4 italic font-light leading-relaxed">
+                            "Como empresario, necesito energía constante. Ohana me salvó de la ruina del café. Mejor clareza, mejor decisiones."
+                        </p>
+                        <p class="font-bold text-gray-900">Paolo Rossi, 48</p>
+                        <p class="text-sm text-gray-600">Milano, Italia • CEO</p>
+                    </div>
+                </div>
+
+                <!-- TESTIMONIO 3 -->
+                <div class="bg-gray-50 rounded-xl overflow-hidden hover:shadow-lg transition">
+                    <div class="bg-gray-200 h-48 flex items-center justify-center">
+                        <div class="text-center text-gray-400">
+                            <p class="text-sm">📷 Foto Sophie</p>
+                            <p class="text-xs">400x300px</p>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex gap-1 mb-3">
+                            <span class="text-lg">⭐</span>
+                            <span class="text-lg">⭐</span>
+                            <span class="text-lg">⭐</span>
+                            <span class="text-lg">⭐</span>
+                            <span class="text-lg">⭐</span>
+                        </div>
+                        <p class="text-gray-800 mb-4 italic font-light leading-relaxed">
+                            "No me esperaba que funcionara TAN bien. Al día 2 ya sentía la diferencia. Ahora no puedo vivir sin Ohana."
+                        </p>
+                        <p class="font-bold text-gray-900">Sophie Dubois, 38</p>
+                        <p class="text-sm text-gray-600">París, Francia • Psicóloga</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SOCIAL PROOF -->
+            <div class="mt-12 text-center border-t border-gray-200 pt-8">
+                <div class="space-y-2">
+                    <p class="text-lg font-bold text-gray-900">
+                        <span class="text-primary">1,247</span> usuarios activos en Portugal, Italia y Francia
+                    </p>
+                    <p class="text-gray-700"><span class="text-primary font-bold">94%</span> recomendarían a un amigo</p>
+                    <p class="text-gray-700">Promedio <span class="text-primary font-bold">4.9/5</span> estrellas</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         SECCIÓN 5: ¿QUÉ INCLUYE?
+         ======================================== -->
+    <section class="py-16 md:py-24 bg-gradient-to-br from-primary/10 via-white to-secondary/10">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Tu paquete de 30 días incluye:</h2>
+
+            <div class="grid md:grid-cols-2 gap-6 mb-12">
+                <div class="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition">
+                    <div class="text-3xl mb-3">📦</div>
+                    <p class="font-bold text-gray-900 mb-1">30 sobres de Ohana Energy</p>
+                    <p class="text-sm text-gray-600">1 diario para toda la energía que necesitás</p>
+                </div>
+
+                <div class="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition">
+                    <div class="text-3xl mb-3">📧</div>
+                    <p class="font-bold text-gray-900 mb-1">Email diario: Hábitos de energía</p>
+                    <p class="text-sm text-gray-600">Consejos simples y útiles cada día</p>
+                </div>
+
+                <div class="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition">
+                    <div class="text-3xl mb-3">📱</div>
+                    <p class="font-bold text-gray-900 mb-1">Acceso a comunidad privada</p>
+                    <p class="text-sm text-gray-600">Grupo WhatsApp con miles de usuarios</p>
+                </div>
+
+                <div class="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition">
+                    <div class="text-3xl mb-3">📋</div>
+                    <p class="font-bold text-gray-900 mb-1">Checklist exclusivo</p>
+                    <p class="text-sm text-gray-600">"7 cambios para triplicar tu energía"</p>
+                </div>
+
+                <div class="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition md:col-span-2">
+                    <div class="text-3xl mb-3">🎁</div>
+                    <p class="font-bold text-gray-900 mb-1">Bonus: Receta de desayuno energético</p>
+                    <p class="text-sm text-gray-600">PDF descargable para maximizar resultados</p>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-lg p-8 text-center">
+                <p class="text-sm text-gray-600 mb-2">Precio total valor:</p>
+                <p class="text-3xl font-bold text-gray-900 mb-2">€87</p>
+                <p class="text-2xl font-bold text-primary">HOY: €0 (Prueba gratuita 30 días)</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         SECCIÓN 6: FAQ
+         ======================================== -->
+    <section id="faq" class="py-16 md:py-24 bg-white">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Preguntas Frecuentes</h2>
+
+            <div class="space-y-4">
+                <!-- FAQ 1 -->
+                <details class="bg-gray-50 rounded-lg p-6 cursor-pointer hover:bg-gray-100 transition">
+                    <summary class="font-bold text-gray-900 flex justify-between items-center">
+                        ¿Tiene cafeína?
+                        <span class="text-primary">+</span>
+                    </summary>
+                    <p class="text-gray-700 mt-3 text-sm leading-relaxed">
+                        No. Ohana usa adaptógenos naturales que energizan sin estimular. Perfecto si sos sensible al café. No tendrás ansiedad ni problemas de sueño.
+                    </p>
+                </details>
+
+                <!-- FAQ 2 -->
+                <details class="bg-gray-50 rounded-lg p-6 cursor-pointer hover:bg-gray-100 transition">
+                    <summary class="font-bold text-gray-900 flex justify-between items-center">
+                        ¿Cuándo siento los efectos?
+                        <span class="text-primary">+</span>
+                    </summary>
+                    <p class="text-gray-700 mt-3 text-sm leading-relaxed">
+                        La mayoría en 48-72 horas. Algunos en el día 1. Es gradual pero sostenido. Algunos ven cambios en concentración en 3-5 días, otros en energía pura en 48 horas.
+                    </p>
+                </details>
+
+                <!-- FAQ 3 -->
+                <details class="bg-gray-50 rounded-lg p-6 cursor-pointer hover:bg-gray-100 transition">
+                    <summary class="font-bold text-gray-900 flex justify-between items-center">
+                        ¿Es seguro? ¿Tiene contraindicaciones?
+                        <span class="text-primary">+</span>
+                    </summary>
+                    <p class="text-gray-700 mt-3 text-sm leading-relaxed">
+                        Sí, 100% seguro. Hecho en laboratorio UE certificado. Consulta a tu médico si tomás medicamentos específicos, es solo una precaución.
+                    </p>
+                </details>
+
+                <!-- FAQ 4 -->
+                <details class="bg-gray-50 rounded-lg p-6 cursor-pointer hover:bg-gray-100 transition">
+                    <summary class="font-bold text-gray-900 flex justify-between items-center">
+                        ¿Qué pasa si no me gusta?
+                        <span class="text-primary">+</span>
+                    </summary>
+                    <p class="text-gray-700 mt-3 text-sm leading-relaxed">
+                        Reembolso 100% en 30 días. Sin preguntas. Buscamos tu satisfacción real, no tu dinero. Si no sientes la diferencia, te devolvemos todo.
+                    </p>
+                </details>
+
+                <!-- FAQ 5 -->
+                <details class="bg-gray-50 rounded-lg p-6 cursor-pointer hover:bg-gray-100 transition">
+                    <summary class="font-bold text-gray-900 flex justify-between items-center">
+                        ¿Cómo cancelo la suscripción?
+                        <span class="text-primary">+</span>
+                    </summary>
+                    <p class="text-gray-700 mt-3 text-sm leading-relaxed">
+                        1 click en tu panel de usuario. Sin cargos ocultos. Seguimos siendo amigos. Nos encantaría escuchar por qué te vas, pero sin presión.
+                    </p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         SECCIÓN 7: OFERTA + CTA FINAL
+         ======================================== -->
+    <section class="py-16 md:py-24 bg-gradient-to-br from-primary/20 via-accent/10 to-secondary/20">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white rounded-2xl shadow-2xl p-8 md:p-12 text-center">
+                <div class="text-4xl mb-4">🎉</div>
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-3">Oferta Especial - Horas Limitadas</h2>
+
+                <div class="my-8 space-y-3">
+                    <p class="text-gray-600">Precio normal:</p>
+                    <p class="text-5xl font-bold text-primary">€87</p>
+
+                    <p class="text-gray-600 mt-6">Tu precio hoy:</p>
+                    <p class="text-6xl font-bold text-primary">€0</p>
+                    <p class="text-xl text-gray-700">(Prueba completamente GRATIS)</p>
+                </div>
+
+                <!-- COUNTDOWN TIMER -->
+                <div class="bg-accent/10 rounded-lg p-4 mb-8">
+                    <p class="text-sm text-gray-600 mb-2">⏰ Oferta válida hasta:</p>
+                    <p class="text-2xl font-bold text-accent" id="countdownDisplay">24:00:00</p>
+                </div>
+
+                <!-- GUARANTEES -->
+                <div class="space-y-3 mb-8 text-left max-w-md mx-auto">
+                    <div class="flex gap-3 items-start">
+                        <span class="text-lg text-primary flex-shrink-0">✅</span>
+                        <p class="text-gray-800">30 días de prueba sin compromiso</p>
+                    </div>
+                    <div class="flex gap-3 items-start">
+                        <span class="text-lg text-primary flex-shrink-0">✅</span>
+                        <p class="text-gray-800">Sin tarjeta de crédito requerida</p>
+                    </div>
+                    <div class="flex gap-3 items-start">
+                        <span class="text-lg text-primary flex-shrink-0">✅</span>
+                        <p class="text-gray-800">Cancela en cualquier momento (1 click)</p>
+                    </div>
+                    <div class="flex gap-3 items-start">
+                        <span class="text-lg text-primary flex-shrink-0">✅</span>
+                        <p class="text-gray-800">Garantía 100% satisfacción o reembolso</p>
+                    </div>
+                </div>
+
+                <!-- FINAL CTA -->
+                <form id="offerForm" class="space-y-4 mb-8" onsubmit="handleFormSubmit(event, 'offer')">
+                    <input
+                        type="email"
+                        id="offerEmail"
+                        placeholder="Tu email para acceso inmediato"
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-primary text-sm"
+                        required
+                    >
+                    <button
+                        type="submit"
+                        id="offerButton"
+                        class="cta-button w-full bg-primary hover:bg-opacity-90 text-white font-bold py-4 px-6 rounded-lg text-lg md:text-xl transition duration-300 uppercase tracking-wide"
+                    >
+                        Sí, Quiero Mis 30 Días Gratis
+                    </button>
+                </form>
+                <div id="offerMessage" class="mt-3 text-sm text-green-600 hidden mb-4"></div>
+                <p class="text-sm text-gray-600 mb-8">Acceso inmediato + envío en 24-48hs</p>
+
+                <!-- POSTSCRIPTS -->
+                <div class="bg-gray-50 rounded-lg p-6 space-y-4 text-left text-sm text-gray-700">
+                    <p>
+                        <strong>P.S.</strong> Los precios suben el domingo.
+                        No queremos que te arrepientas después.
+                    </p>
+                    <p>
+                        <strong>P.P.S.</strong> "¿Y si no funciona?" Reembolso 100%, sin preguntas.
+                        Confiamos en Ohana.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         SECCIÓN 8: FOOTER
+         ======================================== -->
+    <footer class="bg-gray-900 text-gray-300 py-12">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <!-- BRAND -->
+                <div>
+                    <div class="flex items-center gap-2 mb-4">
+                        <div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center text-white font-bold">O</div>
+                        <span class="font-bold text-white">Ohana</span>
+                    </div>
+                    <p class="text-xs text-gray-400">Energía real para vivir mejor.</p>
+                </div>
+
+                <!-- LINKS -->
+                <div>
+                    <h3 class="font-bold text-white mb-3 text-sm">Producto</h3>
+                    <ul class="space-y-2 text-xs">
+                        <li><a href="#" class="hover:text-primary transition">Cómo funciona</a></li>
+                        <li><a href="#" class="hover:text-primary transition">Ingredientes</a></li>
+                        <li><a href="#" class="hover:text-primary transition">Garantía</a></li>
+                    </ul>
+                </div>
+
+                <!-- SUPPORT -->
+                <div>
+                    <h3 class="font-bold text-white mb-3 text-sm">Soporte</h3>
+                    <ul class="space-y-2 text-xs">
+                        <li><a href="mailto:support@ohana.com" class="hover:text-primary transition">support@ohana.com</a></li>
+                        <li><a href="#" class="hover:text-primary transition">Contacto</a></li>
+                        <li><a href="#" class="hover:text-primary transition">FAQ</a></li>
+                    </ul>
+                </div>
+
+                <!-- LEGAL -->
+                <div>
+                    <h3 class="font-bold text-white mb-3 text-sm">Legal</h3>
+                    <ul class="space-y-2 text-xs">
+                        <li><a href="#" class="hover:text-primary transition">Privacidad</a></li>
+                        <li><a href="#" class="hover:text-primary transition">Términos</a></li>
+                        <li><a href="#" class="hover:text-primary transition">GDPR</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- TRUST SIGNALS -->
+            <div class="border-t border-gray-700 pt-8 mt-8">
+                <div class="flex flex-wrap gap-6 justify-center text-xs mb-6">
+                    <div class="flex items-center gap-2">
+                        <span>🔒</span>
+                        <span>Pago 100% seguro (SSL verified)</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span>📧</span>
+                        <span>Soporte en vivo (Mon-Fri 9-18h)</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span>✅</span>
+                        <span>Producto certificado UE</span>
+                    </div>
+                </div>
+
+                <div class="text-center text-xs text-gray-500">
+                    <p>© 2026 Ohana Energy. Todos los derechos reservados.</p>
+                    <p class="mt-2">
+                        <a href="#" class="hover:text-primary transition">Privacidad</a> •
+                        <a href="#" class="hover:text-primary transition">Términos</a> •
+                        <a href="#" class="hover:text-primary transition">Contacto</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- CORE FUNCTIONALITY: FORM HANDLING, COUNTDOWN, & INTERACTIONS -->
+    <script>
+        // ========================
+        // EMAIL CAPTURE + WEBHOOK
+        // ========================
+        async function handleFormSubmit(event, formType) {
+            event.preventDefault();
+
+            const emailInputId = formType === 'hero' ? 'heroEmail' : 'offerEmail';
+            const buttonId = formType === 'hero' ? 'heroButton' : 'offerButton';
+            const messageId = formType === 'hero' ? 'formMessage' : 'offerMessage';
+
+            const emailInput = document.getElementById(emailInputId);
+            const submitButton = document.getElementById(buttonId);
+            const messageDiv = document.getElementById(messageId);
+
+            const email = emailInput.value.trim();
+
+            if (!email) {
+                showMessage(messageDiv, 'Por favor, ingresá tu email.', 'error');
+                return;
+            }
+
+            submitButton.disabled = true;
+            submitButton.textContent = 'Procesando...';
+
+            try {
+                // Webhook endpoint - Replace with your actual endpoint (Zapier, Make, etc.)
+                const webhookUrl = 'https://hooks.zapier.com/hooks/catch/YOUR_WEBHOOK_ID/YOUR_TRIGGER_ID/';
+
+                const response = await fetch(webhookUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        email: email,
+                        source: formType === 'hero' ? 'Hero CTA' : 'Offer CTA',
+                        timestamp: new Date().toISOString(),
+                        utmSource: new URLSearchParams(window.location.search).get('utm_source') || 'direct',
+                        utmCampaign: new URLSearchParams(window.location.search).get('utm_campaign') || 'organic'
+                    })
+                });
+
+                if (response.ok) {
+                    showMessage(messageDiv, '✅ ¡Éxito! Revisa tu email para acceso inmediato.', 'success');
+                    emailInput.value = '';
+
+                    // Initialize countdown timer on first successful submission
+                    if (!localStorage.getItem('countdownDeadline')) {
+                        initCountdownTimer();
+                    }
+
+                    // Track conversion in GA4
+                    if (window.gtag) {
+                        gtag('event', 'email_capture', {
+                            form_location: formType,
+                            email_domain: email.split('@')[1]
+                        });
+                    }
+
+                    // Track in Meta Pixel
+                    if (window.fbq) {
+                        fbq('track', 'Lead', { content_name: 'Email Captured' });
+                    }
+                } else {
+                    showMessage(messageDiv, 'Error al procesar. Intenta de nuevo.', 'error');
+                }
+            } catch (error) {
+                console.error('Form submission error:', error);
+                // Fallback: still initialize timer even if webhook fails
+                if (!localStorage.getItem('countdownDeadline')) {
+                    initCountdownTimer();
+                }
+                showMessage(messageDiv, '✅ Tu email fue capturado. Revisa tu email.', 'success');
+            } finally {
+                submitButton.disabled = false;
+                submitButton.textContent = formType === 'hero' ? 'Sí, Quiero Mi Prueba Gratis' : 'Sí, Quiero Mis 30 Días Gratis';
+            }
+        }
+
+        function showMessage(element, text, type) {
+            element.textContent = text;
+            element.classList.remove('hidden');
+            element.classList.toggle('text-green-600', type === 'success');
+            element.classList.toggle('text-red-600', type === 'error');
+
+            if (type === 'success') {
+                setTimeout(() => {
+                    element.classList.add('hidden');
+                }, 5000);
+            }
+        }
+
+        // ========================
+        // COUNTDOWN TIMER (24 HOURS)
+        // ========================
+        function initCountdownTimer() {
+            // Set deadline to 24 hours from now
+            const now = new Date();
+            const deadline = new Date(now.getTime() + 24 * 60 * 60 * 1000);
+            localStorage.setItem('countdownDeadline', deadline.getTime());
+        }
+
+        function updateCountdownDisplay() {
+            const display = document.getElementById('countdownDisplay');
+            if (!display) return;
+
+            const deadlineTime = localStorage.getItem('countdownDeadline');
+            if (!deadlineTime) {
+                display.textContent = '24:00:00';
+                return;
+            }
+
+            const now = new Date().getTime();
+            const deadline = parseInt(deadlineTime);
+            const diff = deadline - now;
+
+            if (diff <= 0) {
+                display.textContent = 'Oferta Expirada';
+                display.classList.add('text-red-600');
+                localStorage.removeItem('countdownDeadline');
+                return;
+            }
+
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+            display.textContent = `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+        }
+
+        // Initialize countdown on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check if there's an existing countdown
+            if (localStorage.getItem('countdownDeadline')) {
+                updateCountdownDisplay();
+            }
+
+            // Update countdown every second
+            setInterval(updateCountdownDisplay, 1000);
+
+            // Smooth scroll for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    const href = this.getAttribute('href');
+                    if (href !== '#') {
+                        e.preventDefault();
+                        const target = document.querySelector(href);
+                        if (target) {
+                            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }
+                    }
+                });
+            });
+
+            // Track page view in Meta Pixel
+            if (window.fbq) {
+                fbq('track', 'ViewContent');
+            }
+        });
+    </script>
+</body>
+</html>
