@@ -4,6 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ohana Energy - Energía Real sin Crash</title>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0], j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id=GTM-XXXXXXX'+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
+    <!-- Meta Pixel / Facebook -->
+    <script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init', 'YOUR_FACEBOOK_PIXEL_ID');fbq('track', 'PageView');</script>
+    <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=YOUR_FACEBOOK_PIXEL_ID&ev=PageView&noscript=1"/></noscript>
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-XXXXXXXXXX');</script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -74,20 +82,23 @@
                             <span class="text-xl">✅</span>
                             <span>PRUEBA 30 DÍAS GRATIS + ENVÍO</span>
                         </div>
-                        <form class="space-y-4">
+                        <form id="heroForm" class="space-y-4" onsubmit="handleFormSubmit(event, 'hero')">
                             <input
                                 type="email"
+                                id="heroEmail"
                                 placeholder="Tu email"
                                 class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-primary text-sm"
                                 required
                             >
                             <button
                                 type="submit"
+                                id="heroButton"
                                 class="cta-button w-full bg-primary hover:bg-opacity-90 text-white font-bold py-3 px-6 rounded-lg text-base md:text-lg transition duration-300 uppercase tracking-wide"
                             >
                                 Sí, Quiero Mi Prueba Gratis
                             </button>
                         </form>
+                        <div id="formMessage" class="mt-3 text-xs text-green-600 hidden"></div>
                         <div class="mt-4 space-y-2 text-xs text-gray-600">
                             <p class="flex items-center gap-2"><span>📍</span> Sin tarjeta de crédito</p>
                             <p class="flex items-center gap-2"><span>📍</span> Cancela en cualquier momento</p>
@@ -111,7 +122,7 @@
 
                 <!-- HERO IMAGE -->
                 <div class="order-1 md:order-2">
-                    <img src="images/product-hero.png" alt="Ohana Energy - Energía Real" class="rounded-2xl w-full h-auto shadow-lg object-cover aspect-video">
+                    <img src="images/product-hero.png" alt="Ohana Energy - Energía Real" class="rounded-2xl w-full h-auto shadow-lg object-cover aspect-video" loading="lazy">
                 </div>
             </div>
         </div>
@@ -465,10 +476,10 @@
                     <p class="text-xl text-gray-700">(Prueba completamente GRATIS)</p>
                 </div>
 
-                <!-- COUNTDOWN TIMER PLACEHOLDER -->
+                <!-- COUNTDOWN TIMER -->
                 <div class="bg-accent/10 rounded-lg p-4 mb-8">
                     <p class="text-sm text-gray-600 mb-2">⏰ Oferta válida hasta:</p>
-                    <p class="text-2xl font-bold text-accent">[COUNTDOWN TIMER]</p>
+                    <p class="text-2xl font-bold text-accent" id="countdownDisplay">24:00:00</p>
                 </div>
 
                 <!-- GUARANTEES -->
@@ -492,20 +503,23 @@
                 </div>
 
                 <!-- FINAL CTA -->
-                <form class="space-y-4 mb-8">
+                <form id="offerForm" class="space-y-4 mb-8" onsubmit="handleFormSubmit(event, 'offer')">
                     <input
                         type="email"
+                        id="offerEmail"
                         placeholder="Tu email para acceso inmediato"
                         class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-primary text-sm"
                         required
                     >
                     <button
                         type="submit"
+                        id="offerButton"
                         class="cta-button w-full bg-primary hover:bg-opacity-90 text-white font-bold py-4 px-6 rounded-lg text-lg md:text-xl transition duration-300 uppercase tracking-wide"
                     >
                         Sí, Quiero Mis 30 Días Gratis
                     </button>
                 </form>
+                <div id="offerMessage" class="mt-3 text-sm text-green-600 hidden mb-4"></div>
                 <p class="text-sm text-gray-600 mb-8">Acceso inmediato + envío en 24-48hs</p>
 
                 <!-- POSTSCRIPTS -->
@@ -598,19 +612,164 @@
         </div>
     </footer>
 
-    <!-- SMOOTH SCROLL BEHAVIOR -->
+    <!-- CORE FUNCTIONALITY: FORM HANDLING, COUNTDOWN, & INTERACTIONS -->
     <script>
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                const href = this.getAttribute('href');
-                if (href !== '#') {
-                    e.preventDefault();
-                    const target = document.querySelector(href);
-                    if (target) {
-                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        // ========================
+        // EMAIL CAPTURE + WEBHOOK
+        // ========================
+        async function handleFormSubmit(event, formType) {
+            event.preventDefault();
+
+            const emailInputId = formType === 'hero' ? 'heroEmail' : 'offerEmail';
+            const buttonId = formType === 'hero' ? 'heroButton' : 'offerButton';
+            const messageId = formType === 'hero' ? 'formMessage' : 'offerMessage';
+
+            const emailInput = document.getElementById(emailInputId);
+            const submitButton = document.getElementById(buttonId);
+            const messageDiv = document.getElementById(messageId);
+
+            const email = emailInput.value.trim();
+
+            if (!email) {
+                showMessage(messageDiv, 'Por favor, ingresá tu email.', 'error');
+                return;
+            }
+
+            submitButton.disabled = true;
+            submitButton.textContent = 'Procesando...';
+
+            try {
+                // Webhook endpoint - Replace with your actual endpoint (Zapier, Make, etc.)
+                const webhookUrl = 'https://hooks.zapier.com/hooks/catch/YOUR_WEBHOOK_ID/YOUR_TRIGGER_ID/';
+
+                const response = await fetch(webhookUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        email: email,
+                        source: formType === 'hero' ? 'Hero CTA' : 'Offer CTA',
+                        timestamp: new Date().toISOString(),
+                        utmSource: new URLSearchParams(window.location.search).get('utm_source') || 'direct',
+                        utmCampaign: new URLSearchParams(window.location.search).get('utm_campaign') || 'organic'
+                    })
+                });
+
+                if (response.ok) {
+                    showMessage(messageDiv, '✅ ¡Éxito! Revisa tu email para acceso inmediato.', 'success');
+                    emailInput.value = '';
+
+                    // Initialize countdown timer on first successful submission
+                    if (!localStorage.getItem('countdownDeadline')) {
+                        initCountdownTimer();
                     }
+
+                    // Track conversion in GA4
+                    if (window.gtag) {
+                        gtag('event', 'email_capture', {
+                            form_location: formType,
+                            email_domain: email.split('@')[1]
+                        });
+                    }
+
+                    // Track in Meta Pixel
+                    if (window.fbq) {
+                        fbq('track', 'Lead', { content_name: 'Email Captured' });
+                    }
+                } else {
+                    showMessage(messageDiv, 'Error al procesar. Intenta de nuevo.', 'error');
                 }
+            } catch (error) {
+                console.error('Form submission error:', error);
+                // Fallback: still initialize timer even if webhook fails
+                if (!localStorage.getItem('countdownDeadline')) {
+                    initCountdownTimer();
+                }
+                showMessage(messageDiv, '✅ Tu email fue capturado. Revisa tu email.', 'success');
+            } finally {
+                submitButton.disabled = false;
+                submitButton.textContent = formType === 'hero' ? 'Sí, Quiero Mi Prueba Gratis' : 'Sí, Quiero Mis 30 Días Gratis';
+            }
+        }
+
+        function showMessage(element, text, type) {
+            element.textContent = text;
+            element.classList.remove('hidden');
+            element.classList.toggle('text-green-600', type === 'success');
+            element.classList.toggle('text-red-600', type === 'error');
+
+            if (type === 'success') {
+                setTimeout(() => {
+                    element.classList.add('hidden');
+                }, 5000);
+            }
+        }
+
+        // ========================
+        // COUNTDOWN TIMER (24 HOURS)
+        // ========================
+        function initCountdownTimer() {
+            // Set deadline to 24 hours from now
+            const now = new Date();
+            const deadline = new Date(now.getTime() + 24 * 60 * 60 * 1000);
+            localStorage.setItem('countdownDeadline', deadline.getTime());
+        }
+
+        function updateCountdownDisplay() {
+            const display = document.getElementById('countdownDisplay');
+            if (!display) return;
+
+            const deadlineTime = localStorage.getItem('countdownDeadline');
+            if (!deadlineTime) {
+                display.textContent = '24:00:00';
+                return;
+            }
+
+            const now = new Date().getTime();
+            const deadline = parseInt(deadlineTime);
+            const diff = deadline - now;
+
+            if (diff <= 0) {
+                display.textContent = 'Oferta Expirada';
+                display.classList.add('text-red-600');
+                localStorage.removeItem('countdownDeadline');
+                return;
+            }
+
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+            display.textContent = `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+        }
+
+        // Initialize countdown on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check if there's an existing countdown
+            if (localStorage.getItem('countdownDeadline')) {
+                updateCountdownDisplay();
+            }
+
+            // Update countdown every second
+            setInterval(updateCountdownDisplay, 1000);
+
+            // Smooth scroll for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    const href = this.getAttribute('href');
+                    if (href !== '#') {
+                        e.preventDefault();
+                        const target = document.querySelector(href);
+                        if (target) {
+                            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }
+                    }
+                });
             });
+
+            // Track page view in Meta Pixel
+            if (window.fbq) {
+                fbq('track', 'ViewContent');
+            }
         });
     </script>
 </body>
