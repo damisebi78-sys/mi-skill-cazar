@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ohana Energy - Paquete Completo Meta Ads</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        @page {
+            size: A4;
+            margin: 1.5cm;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #1f2937;
+            background: white;
+            padding: 20px;
+        }
+
+        :root {
+            --primary: #059669;
+            --primary-dark: #047857;
+            --accent: #f59e0b;
+            --neutral-light: #f3f4f6;
+            --neutral-dark: #6b7280;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+        }
+
+        .header {
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, #059669 0%, #047857 100%);
+            color: white;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .section {
+            margin-bottom: 40px;
+            page-break-inside: avoid;
+        }
+
+        h2 {
+            color: var(--primary);
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            border-bottom: 3px solid var(--primary);
+            padding-bottom: 10px;
+        }
+
+        h3 {
+            color: var(--primary-dark);
+            font-size: 1.3em;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+
+        .copy-box {
+            background: #fef3c7;
+            border-left: 4px solid var(--accent);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+            font-size: 0.95em;
+        }
+
+        .copy-box.primary {
+            background: #dbeafe;
+            border-left-color: #3b82f6;
+        }
+
+        .copy-box.success {
+            background: #dcfce7;
+            border-left-color: var(--primary);
+        }
+
+        .copy-headline {
+            font-weight: bold;
+            color: #1f2937;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .copy-label {
+            font-size: 0.85em;
+            color: #6b7280;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .copy-text {
+            font-family: 'Courier New', monospace;
+            background: white;
+            padding: 12px;
+            border-radius: 3px;
+            margin: 8px 0;
+            line-height: 1.5;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+        .audience-box {
+            background: var(--neutral-light);
+            border: 2px solid var(--primary);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .audience-box h4 {
+            color: var(--primary-dark);
+            margin-bottom: 12px;
+            font-size: 1.1em;
+        }
+
+        .audience-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .audience-list li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .audience-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        .prompt-box {
+            background: #f0fdf4;
+            border: 2px solid var(--primary);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .prompt-title {
+            color: var(--primary-dark);
+            font-weight: bold;
+            margin-bottom: 12px;
+            font-size: 1.1em;
+        }
+
+        .prompt-text {
+            font-family: 'Courier New', monospace;
+            background: white;
+            padding: 15px;
+            border-radius: 3px;
+            font-size: 0.9em;
+            line-height: 1.6;
+            color: #1f2937;
+        }
+
+        .specs {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin: 15px 0;
+        }
+
+        .spec-item {
+            background: white;
+            padding: 12px;
+            border-left: 3px solid var(--primary);
+        }
+
+        .spec-label {
+            font-weight: bold;
+            color: var(--primary);
+            font-size: 0.9em;
+        }
+
+        .spec-value {
+            color: #1f2937;
+            margin-top: 4px;
+        }
+
+        .cta-button {
+            background: var(--primary);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 4px;
+            display: inline-block;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 10px 5px 10px 0;
+            font-size: 0.9em;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 0.95em;
+        }
+
+        .comparison-table th {
+            background: var(--primary);
+            color: white;
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .comparison-table td {
+            padding: 12px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .comparison-table tr:nth-child(even) {
+            background: var(--neutral-light);
+        }
+
+        .comparison-table tr:nth-child(2) td {
+            background: #fee2e2;
+        }
+
+        .comparison-table tr:nth-child(3) td {
+            background: #dcfce7;
+        }
+
+        .tip-box {
+            background: #f0fdf4;
+            border: 2px solid var(--primary);
+            padding: 15px;
+            border-radius: 4px;
+            margin: 20px 0;
+        }
+
+        .tip-box strong {
+            color: var(--primary-dark);
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: var(--neutral-dark);
+            font-size: 0.9em;
+            border-top: 1px solid #e5e7eb;
+            margin-top: 40px;
+        }
+
+        .budget-guide {
+            background: #fef3c7;
+            border: 2px solid var(--accent);
+            padding: 20px;
+            border-radius: 4px;
+            margin: 20px 0;
+        }
+
+        .budget-guide h4 {
+            color: #b45309;
+            margin-bottom: 12px;
+        }
+
+        .budget-item {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .budget-item:before {
+            content: "💰";
+            position: absolute;
+            left: 0;
+        }
+
+        @media print {
+            body { padding: 0; }
+            .container { max-width: 100%; }
+            .section { page-break-inside: avoid; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- HEADER -->
+        <div class="header">
+            <h1>🎯 Ohana Energy</h1>
+            <p>Paquete Completo de Meta Ads (Facebook & Instagram)</p>
+            <p style="font-size: 0.95em; margin-top: 15px;">Copies, Prompts Visuales & Segmentación Estratégica</p>
+        </div>
+
+        <!-- SECCIÓN 1: COPIES DE ANUNCIOS -->
+        <div class="section">
+            <h2>📝 1. Copies de Anuncios (3 Ángulos)</h2>
+
+            <p style="margin-bottom: 20px; color: #6b7280;">
+                <strong>Instrucciones:</strong> Copia cada sección completa al Administrador de Anuncios de Meta.
+                Cada ángulo tiene un propósito diferente y apunta a diferentes "gatillos mentales" de la audiencia.
+            </p>
+
+            <!-- ÁNGULO 1: DOLOR / CRASH -->
+            <div class="copy-box primary">
+                <div class="copy-label">📊 ÁNGULO 1: PROBLEMA / DOLOR</div>
+                <div class="copy-headline">El Crash de las 3 PM que Destruye Tu Productividad</div>
+
+                <h4 style="margin-top: 15px; color: #1e40af; font-size: 1em;">HEADLINES (Elige 1)</h4>
+                <div class="copy-text">¿Café a las 8 AM? ¿Crash a las 3 PM? Esto tiene solución.
+
+Energía limpia sin el crash de la tarde
+
+El café te está matando (y no lo sabías)
+
+¿Por qué siempre caes a las 3 PM? (La verdad científica)</div>
+
+                <h4 style="margin-top: 15px; color: #1e40af; font-size: 1em;">PRIMARY TEXT (Body Copy)</h4>
+                <div class="copy-text">¿Te pasa esto?
+
+☕ 8 AM: Tomas café. Te sientes invencible.
+🕐 2 PM: Energía normal.
+🌙 3-4 PM: CRASH. Quieres desplomarteEn la cama.
+
+Tu cuerpo NO está cansado.
+Tu glucosa está en piso.
+Tu cortisol está destruido.
+Tu dopamina se evaporó.
+
+Eso NO es normal.
+
+Ohana Energy cambia todo:
+✅ Energía estable por 4-6 horas (sin bajón)
+✅ Enfoque mental sin taquicardia
+✅ Sin crash de las 3 PM
+✅ Fórmula con adaptógenos científicamente probados
+
+Matcha + Maca + Ashwagandha + Complejo B + Magnesio = Bioquímica ganadora.
+
+Probá 1 taza mañana.
+Hoy mismo sabrás la diferencia.
+
+USD 9.90 (66% off) - 24hs limitadas ⏰</div>
+
+                <h4 style="margin-top: 15px; color: #1e40af; font-size: 1em;">DESCRIPTION</h4>
+                <div class="copy-text">Energía limpia sin crash. Adaptógenos científicos. Resultados en 7 días o devolvemos tu dinero.</div>
+            </div>
+
+            <!-- ÁNGULO 2: COMPARACIÓN -->
+            <div class="copy-box">
+                <div class="copy-label">🧪 ÁNGULO 2: COMPARACIÓN / EDUCACIÓN</div>
+                <div class="copy-headline">Bebidas Químicas vs. Ohana Energy: La Verdad Brutal</div>
+
+                <h4 style="margin-top: 15px; color: #7c3aed; font-size: 1em;">HEADLINES (Elige 1)</h4>
+                <div class="copy-text">Los energizantes que tomas son ADICTIVOS (así funciona)
+
+¿Café o energizantes? Ambos te están matando
+
+La diferencia entre energía REAL y energía FALSA
+
+Esto es lo que hay en tu bebida energética (te va a sorprender)</div>
+
+                <h4 style="margin-top: 15px; color: #7c3aed; font-size: 1em;">PRIMARY TEXT (Body Copy)</h4>
+                <div class="copy-text">Comparémoslo:
+
+❌ CAFÉ COMERCIAL:
+- 200+ mg de cafeína (sintetizada)
+- Quema tus reservas de cortisol
+- Genera ansiedad y taquicardia
+- Crash de 6+ horas después
+- Ácido (daña tu estómago)
+- ADICTIVO (dependencia real)
+
+❌ ENERGIZANTES SINTÉTICOS:
+- Taurina + Guaraná + Colorantes
+- Picos de glucosa peligrosos
+- Afectan el corazón y presión arterial
+- Crash BRUTAL después
+- Vinculados a déficit de atención
+- ULTRA-ADICTIVOS (los fabricantes lo saben)
+
+✅ OHANA ENERGY:
+- 70 mg de cafeína natural (matcha)
+- L-Teanina (calma + enfoque)
+- Adaptógenos científicos (maca, ashwagandha)
+- Energía SOSTENIDA (4-6 horas)
+- Sin crash, sin ansiedad
+- Magnesio + Complejo B (nutrientes reales)
+- Sabor delicioso sin azúcar
+
+¿La diferencia?
+
+El café te la PRESTA de tu cuerpo.
+Ohana te la GENERA naturalmente.
+
+Un taza de Ohana = 4 horas de enfoque sin remordimiento.
+
+USD 9.90 (66% off) ⏰ Hoy solamente</div>
+
+                <h4 style="margin-top: 15px; color: #7c3aed; font-size: 1em;">DESCRIPTION</h4>
+                <div class="copy-text">Energía real vs. sintética. Adaptógenos naturales. Sin crash. Sin ansiedad. Garantía 30 días.</div>
+            </div>
+
+            <!-- ÁNGULO 3: ESTILO DE VIDA -->
+            <div class="copy-box success">
+                <div class="copy-label">🎯 ÁNGULO 3: ASPIRACIÓN / ESTILO DE VIDA</div>
+                <div class="copy-headline">Enfoque Mental Imparable (Sin Ansiedad)</div>
+
+                <h4 style="margin-top: 15px; color: #059669; font-size: 1em;">HEADLINES (Elige 1)</h4>
+                <div class="copy-text">Trabaja 6 horas de corrido sin perder el enfoque (sin taquicardia)
+
+La bebida de las personas productivas
+
+Rendimiento laboral + Calma = OHANA
+
+Concentración silenciosa (sin el ruido de la ansiedad)</div>
+
+                <h4 style="margin-top: 15px; color: #059669; font-size: 1em;">PRIMARY TEXT (Body Copy)</h4>
+                <div class="copy-text">Imaginá esto:
+
+7:30 AM: Prepará tu Ohana Energy (2 minutos).
+
+8:00 AM: Empezás el trabajo. Claridad mental. Enfoque total.
+
+12:00 PM: Todavía enfocado. Sin distracción. Sin ansiedad.
+
+2:00 PM: La mayoría se cae a las 2. Vos seguís adelante.
+
+3:00 PM: El famoso "crash" NO llega.
+        Seguís productivo. Calmo. Sereno.
+
+6:00 PM: Terminás el día con claridad mental intacta.
+        No necesitas otro café.
+        No hay crash nocturno.
+        Duermes como nunca antes.
+
+Eso es OHANA ENERGY.
+
+No es magia. Es bioquímica:
+✅ Matcha (cafeína suave + L-Teanina)
+✅ Adaptógenos (equilibrio de cortisol)
+✅ Magnesio (calmante natural)
+✅ Complejo B (energía celular)
+
+Resultado: Enfoque sin ansiedad. Productividad sin remordimiento.
+
+Perfecta para:
+👨‍💼 Profesionales que necesitan rendimiento
+🎓 Estudiantes en épocas de parciales
+🧠 Creativos que viven del enfoque mental
+🏃 Atletas que buscan performance limpia
+
+¿Lista para tu transformación?
+
+USD 9.90 (66% descuento) - Precio sube después de hoy ⏰</div>
+
+                <h4 style="margin-top: 15px; color: #059669; font-size: 1em;">DESCRIPTION</h4>
+                <div class="copy-text">Enfoque mental sin ansiedad. 4-6 horas de productividad. Fórmula con adaptógenos científicos.</div>
+            </div>
+        </div>
+
+        <!-- SECCIÓN 2: PROMPTS VISUALES -->
+        <div class="section">
+            <h2>🎬 2. Prompts para Generar Imágenes/Videos</h2>
+
+            <p style="margin-bottom: 20px; color: #6b7280;">
+                <strong>Instrucciones:</strong> Usa estos prompts en Midjourney, Leonardo AI o tu generador de imágenes preferido.
+                Pega el prompt completo tal como está. Los resultados deben ser cinematográficos y minimalistas.
+            </p>
+
+            <!-- PROMPT 1 -->
+            <div class="prompt-box">
+                <div class="prompt-title">📸 PROMPT 1: Imagen Estática - Energía Limpia</div>
+                <div class="prompt-text">A minimalist, cinematic photograph of a ceramic matte green mug with steaming Ohana Energy beverage (matcha-based drink with visible vibrant green color), sitting on a natural wooden table. Morning sunlight streaming through a large window, creating soft shadows. Background: blurred modern office workspace with a laptop. The mug is in sharp focus. Aesthetic: scandinavian minimalism, warm neutral tones (whites, greys, soft greens), professional product photography. Canon 5D Mark IV, 85mm f/1.4 lens, shallow depth of field, color grading: slightly warm, desaturated background. No text, no logo, pure lifestyle photography.</div>
+            </div>
+
+            <!-- PROMPT 2 -->
+            <div class="prompt-box">
+                <div class="prompt-title">📸 PROMPT 2: Imagen Estática - Contraste "Antes vs Después"</div>
+                <div class="prompt-text">Split-screen comparison. LEFT SIDE (Energy Crash): A tired, stressed person slumped over desk at 3 PM, surrounded by empty coffee cups, messy desk, dim office lighting, desaturated colors, frustrated expression. RIGHT SIDE (Ohana Energy): The same person, now alert and smiling, holding Ohana Energy mug, clean organized desk, bright natural sunlight, vibrant green accents, peaceful expression. Aesthetic: cinematic contrast, left side desaturated/cool tones, right side warm/saturated/green tones. High-quality lifestyle photography, professional tone, health/wellness magazine style.</div>
+            </div>
+
+            <!-- PROMPT 3 -->
+            <div class="prompt-box">
+                <div class="prompt-title">🎥 PROMPT 3: Video/Animation - El Proceso (15-30 segundos)</div>
+                <div class="prompt-text">Cinematic slow-motion video sequence showing the preparation of Ohana Energy.
+
+SCENE 1 (0-3s): Aerial shot of ingredients laid out beautifully on a marble surface—matcha powder, maca powder, cacao, fresh green leaves, wooden spoon. Warm golden morning light.
+
+SCENE 2 (3-8s): Close-up of matcha whisking in ceramic bowl with hot water, creating vibrant green froth. Delicate movement. ASMR sound of whisking.
+
+SCENE 3 (8-12s): Pouring of creamy milk into the matcha, creating swirling patterns. Soft lighting from the side.
+
+SCENE 4 (12-15s): Final mug with finished Ohana Energy drink, steam rising gently. Person's hands holding the warm mug by a window with morning light. Peaceful, serene, satisfied expression.
+
+AUDIO: Gentle piano music + ASMR whisking sounds.
+
+AESTHETIC: Cinematic, warm color grading, bokeh background, slow-motion fluidity, wellness/lifestyle vibe. Shot on cinema camera, 24fps, shallow depth of field.</div>
+            </div>
+
+            <div class="tip-box">
+                <strong>💡 Pro Tips para Maximizar Resultados:</strong>
+                <ul style="margin-left: 20px; margin-top: 10px;">
+                    <li><strong>Colores clave:</strong> Verde #059669 (Ohana brand), blanco, gris neutro, oro/warm tones para luz</li>
+                    <li><strong>Evitá:</strong> Carteles con texto, logos claros, o elementos corporativos. Queremos "lifestyle" puro</li>
+                    <li><strong>Iluminación:</strong> Siempre luz natural/dorada. Eso vende bienestar</li>
+                    <li><strong>Generador recomendado:</strong> Midjourney v6 o Leonardo AI (mejor control de colores)</li>
+                    <li><strong>Iteración:</strong> Si el resultado no tiene suficiente "verde", pide regeneración con "increase green saturation by 30%"</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- SECCIÓN 3: SEGMENTACIÓN META ADS -->
+        <div class="section">
+            <h2>🎯 3. Segmentación Estratégica en Meta Ads</h2>
+
+            <p style="margin-bottom: 20px; color: #6b7280;">
+                <strong>Instrucciones:</strong> En el Administrador de Anuncios de Meta, crea campañas separadas por cada audiencia.
+                Esto permite A/B testing y optimización independiente de cada segmento.
+            </p>
+
+            <!-- AUDIENCIA 1 -->
+            <div class="audience-box">
+                <h4>👤 AUDIENCIA 1: "Cafetomanos Frustrados" (HIGHEST INTENT)</h4>
+                <p style="margin-bottom: 15px; color: #6b7280;">Personas que beben MUCHO café, sufren de ansiedad y buscan alternativas naturales.</p>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                    <div>
+                        <h5 style="color: var(--primary); margin-bottom: 10px; font-weight: bold;">Datos Demográficos</h5>
+                        <ul class="audience-list">
+                            <li>Edad: 25-55 años</li>
+                            <li>Género: Todos (50/50)</li>
+                            <li>Ubicación: Latinoamérica (MX, AR, CO, CL, PER)</li>
+                            <li>Idioma: Español</li>
+                            <li>Status socioeconómico: C+, B</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h5 style="color: var(--primary); margin-bottom: 10px; font-weight: bold;">Intereses & Comportamientos</h5>
+                        <ul class="audience-list">
+                            <li>Sigue: páginas de café, nutrición, wellness</li>
+                            <li>Interés en: "salud natural", "energía", "productividad"</li>
+                            <li>Busca: "alternativa al café", "energía sin crash"</li>
+                            <li>Comportamiento: alto engagement con contenido de salud</li>
+                            <li>Dispositivo: 70% mobile, 30% desktop</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <table class="comparison-table" style="margin-top: 15px;">
+                    <tr>
+                        <th>Parámetro</th>
+                        <th>Valor en Meta Ads</th>
+                    </tr>
+                    <tr>
+                        <td><strong>Intereses Primarios</strong></td>
+                        <td>Coffee Lovers, Health & Wellness, Natural Products, Nutrition</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Intereses Secundarios</strong></td>
+                        <td>Self-improvement, Mental Health, Fitness, Mindfulness</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Palabras Clave (Search)</strong></td>
+                        <td"alternativa café", "energía natural", "bebida adaptógenos", "sin cafeína"</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Audiencia Personalizada</strong></td>
+                        <td>Emails de clientes anteriores (si existentes)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Lookalike</strong></td>
+                        <td>1-5% similarity a email list / fb pixel</td>
+                    </tr>
+                </table>
+
+                <p style="margin-top: 15px; color: #059669; font-weight: bold;">
+                    ✅ MEJOR ÁNGULO PARA ESTA AUDIENCIA: Ángulo 1 (Dolor/Crash) & Ángulo 2 (Comparación)
+                </p>
+            </div>
+
+            <!-- AUDIENCIA 2 -->
+            <div class="audience-box">
+                <h4>👤 AUDIENCIA 2: "Profesionales Productivity-Obsessed" (MEDIUM INTENT)</h4>
+                <p style="margin-bottom: 15px; color: #6b7280;">Personas en puestos ejecutivos, emprendedores, creadores que buscan optimizar su rendimiento mental.</p>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                    <div>
+                        <h5 style="color: var(--primary); margin-bottom: 10px; font-weight: bold;">Datos Demográficos</h5>
+                        <ul class="audience-list">
+                            <li>Edad: 28-50 años</li>
+                            <li>Género: 60% Hombres, 40% Mujeres</li>
+                            <li>Ubicación: Latinoamérica urbana</li>
+                            <li>Ocupación: Ejecutivos, emprendedores, freelancers</li>
+                            <li>Ingreso: B+, A</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h5 style="color: var(--primary); margin-bottom: 10px; font-weight: bold;">Intereses & Comportamientos</h5>
+                        <ul class="audience-list">
+                            <li>Sigue: páginas de productividad, negocios, biohacking</li>
+                            <li>Interés en: "optimización", "rendimiento", "biohacking"</li>
+                            <li>Busca: "bebida para enfoque", "nootropicos naturales"</li>
+                            <li>Comportamiento: early adopters, invierte en self-improvement</li>
+                            <li>Dispositivo: 60% mobile, 40% desktop</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <table class="comparison-table" style="margin-top: 15px;">
+                    <tr>
+                        <th>Parámetro</th>
+                        <th>Valor en Meta Ads</th>
+                    </tr>
+                    <tr>
+                        <td><strong>Intereses Primarios</strong></td>
+                        <td>Entrepreneurship, Productivity, Biohacking, Self-improvement, Business</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Intereses Secundarios</strong></td>
+                        <td>Technology, Health & Fitness, Personal Development, Nutrition</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Palabras Clave (Search)</strong></td>
+                        <td>"bebida productividad", "nootropicos naturales", "enfoque mental", "biohacking"</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Comportamiento</strong></td>
+                        <td>Alto engagement con ads de producto premium, disposición a gastar</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Ubicación Específica</strong></td>
+                        <td>Dentro de ciudades principales (CDMX, Buenos Aires, Bogotá, Santiago)</td>
+                    </tr>
+                </table>
+
+                <p style="margin-top: 15px; color: #059669; font-weight: bold;">
+                    ✅ MEJOR ÁNGULO PARA ESTA AUDIENCIA: Ángulo 3 (Estilo de Vida/Rendimiento)
+                </p>
+            </div>
+
+            <!-- AUDIENCIA 3 -->
+            <div class="audience-box">
+                <h4>👤 AUDIENCIA 3: "Health & Wellness Enthusiasts" (WARM AUDIENCE)</h4>
+                <p style="margin-bottom: 15px; color: #6b7280;">Personas interesadas en salud natural, suplementos, wellness holístico.</p>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                    <div>
+                        <h5 style="color: var(--primary); margin-bottom: 10px; font-weight: bold;">Datos Demográficos</h5>
+                        <ul class="audience-list">
+                            <li>Edad: 25-60 años (más mujeres 55%)</li>
+                            <li>Ubicación: Latinoamérica urbana + ciudades medianas</li>
+                            <li>Interés: nutrición, yoga, meditación, salud preventiva</li>
+                            <li>Ingreso: C+, B</li>
+                            <li>Estilo de vida: health-conscious, consume suplementos</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h5 style="color: var(--primary); margin-bottom: 10px; font-weight: bold;">Intereses & Comportamientos</h5>
+                        <ul class="audience-list">
+                            <li>Sigue: nutricionistas, coaches de salud, marcas wellness</li>
+                            <li>Interés en: "nutrición", "adaptógenos", "medicina natural"</li>
+                            <li>Busca: "bebida saludable", "suplemento natural", "energía sostenible"</li>
+                            <li>Comportamiento: compra regularmente productos de wellness</li>
+                            <li>Dispositivo: 65% mobile, 35% desktop</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <table class="comparison-table" style="margin-top: 15px;">
+                    <tr>
+                        <th>Parámetro</th>
+                        <th>Valor en Meta Ads</th>
+                    </tr>
+                    <tr>
+                        <td><strong>Intereses Primarios</strong></td>
+                        <td>Health & Wellness, Yoga, Meditation, Nutrition, Fitness</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Intereses Secundarios</strong></td>
+                        <td>Natural Products, Healthy Eating, Mental Health, Mindfulness</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Palabras Clave (Search)</strong></td>
+                        <td>"bebida adaptógenos", "energía natural", "suplemento wellness", "salud preventiva"</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Página Fan (Conexión)</strong></td>
+                        <td>Sigue páginas de nutricionistas, coaches de salud, marcas wellness</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Compra Previa</strong></td>
+                        <td>Suplementos, bebidas saludables, productos de bienestar</td>
+                    </tr>
+                </table>
+
+                <p style="margin-top: 15px; color: #059669; font-weight: bold;">
+                    ✅ MEJOR ÁNGULO PARA ESTA AUDIENCIA: Ángulo 2 (Educación/Comparación) & Ángulo 3 (Estilo de Vida)
+                </p>
+            </div>
+        </div>
+
+        <!-- SECCIÓN 4: GUÍA DE IMPLEMENTACIÓN -->
+        <div class="section">
+            <h2>📋 4. Guía Rápida de Implementación</h2>
+
+            <h3>Paso 1: Setup en Meta Ads Manager</h3>
+            <ul style="margin-left: 30px; margin-bottom: 20px;">
+                <li>Abrí Meta Ads Manager (business.facebook.com)</li>
+                <li>Creá una <strong>Campaña</strong> con objetivo: "Conversiones" (compras en sitio web)</li>
+                <li>Creá 3 <strong>Ad Sets</strong> (uno por audiencia)</li>
+                <li>Creá 3+ <strong>Anuncios</strong> (1 por copy, máx. 3)</li>
+            </ul>
+
+            <h3>Paso 2: Duplicá Este Flujo</h3>
+            <div class="copy-box" style="background: #e0e7ff; border-left-color: #4f46e5;">
+                <strong>ESTRUCTURA RECOMENDADA:</strong>
+                <div class="copy-text" style="margin-top: 10px;">
+Campaña: "Ohana_Energy_Launch_Q1"
+├── Ad Set 1: "Cafetomanos (Ángulo Dolor)"
+│   ├── Ad 1: "Crash de las 3 PM" (Imagen estatica)
+│   ├── Ad 2: "¿Café a las 8 AM?" (Video 15s)
+│   └── Ad 3: "El café te mata" (Carrusel)
+├── Ad Set 2: "Professionals (Ángulo Rendimiento)"
+│   ├── Ad 1: "Enfoque sin ansiedad" (Imagen)
+│   ├── Ad 2: "Trabaja 6 horas sin crash" (Video)
+│   └── Ad 3: "Productividad limpia" (Carrusel)
+└── Ad Set 3: "Wellness (Ángulo Educación)"
+    ├── Ad 1: "Energizantes sintéticos vs. natural" (Imagen)
+    ├── Ad 2: "La verdad del café" (Video)
+    └── Ad 3: "Comparativa" (Carrusel)</div>
+            </div>
+
+            <h3 style="margin-top: 30px;">Paso 3: Configuración de Budget & Timing</h3>
+            <div class="budget-guide">
+                <h4>💰 Budget Recomendado</h4>
+                <div class="budget-item"><strong>Presupuesto Total:</strong> USD 300-500 (para test inicial de 7 días)</div>
+                <div class="budget-item"><strong>Por Ad Set:</strong> USD 100-150 (permite 100-150 conversiones de data)</div>
+                <div class="budget-item"><strong>Optimización:</strong> "Conversiones" (maximizar compras)</div>
+                <div class="budget-item"><strong>Duración:</strong> 7-14 días para recolectar data inicial</div>
+                <div class="budget-item"><strong>Schedule:</strong> Continuous (corre todos los días)</div>
+                <div class="budget-item"><strong>Bid Strategy:</strong> "Lowest Cost" (Meta optimiza automáticamente)</div>
+            </div>
+
+            <h3 style="margin-top: 30px;">Paso 4: Elementos de la Creativa (Checklist)</h3>
+            <div class="tip-box">
+                <strong>✅ Para cada anuncio, asegúrate que tenga:</strong>
+                <ul style="margin-left: 20px; margin-top: 10px;">
+                    <li>📸 <strong>Imagen/Video:</strong> Descargá de Midjourney o Leonardo AI (o usá las que ya tenés)</li>
+                    <li>📝 <strong>Headline:</strong> Max 125 caracteres (pegá exactamente del copy)</li>
+                    <li>📄 <strong>Primary Text:</strong> Max 125 caracteres (descripción corta)</li>
+                    <li>🔗 <strong>Link:</strong> https://tudominio.com (a landing page)</li>
+                    <li>🎯 <strong>CTA Button:</strong> "Comprar Ahora" o "Aprender Más"</li>
+                    <li>🌍 <strong>Landing Page:</strong> Asegúrate que sea mobile-friendly y tenga pixel instalado</li>
+                </ul>
+            </div>
+
+            <h3 style="margin-top: 30px;">Paso 5: Pixel & Tracking</h3>
+            <p style="margin-bottom: 15px; color: #6b7280;">
+                Antes de lanzar, asegúrate de tener:
+            </p>
+            <ul style="margin-left: 30px;">
+                <li>✅ <strong>Meta Pixel instalado</strong> en tu landing page (código en header)</li>
+                <li>✅ <strong>Evento "Purchase" configurado</strong> (se trackea cuando completa la compra)</li>
+                <li>✅ <strong>Google Analytics 4</strong> conectado (doble validación de conversiones)</li>
+                <li>✅ <strong>Webhook de Zapier/Make.com</strong> funcionando (para emails de bienvenida)</li>
+            </ul>
+
+            <h3 style="margin-top: 30px;">Paso 6: Monitoreo & Optimización</h3>
+            <table class="comparison-table">
+                <tr>
+                    <th>Métrica</th>
+                    <th>Objetivo</th>
+                    <th>Acción si está mal</th>
+                </tr>
+                <tr>
+                    <td><strong>CTR (Click-Through Rate)</strong></td>
+                    <td>2-5% en mobile ads</td>
+                    <td>Cambiar headline o imagen</td>
+                </tr>
+                <tr>
+                    <td><strong>CPC (Cost Per Click)</strong></td>
+                    <td>$0.20-0.80 USD</td>
+                    <td>Pausar audiencia, cambiar targeting</td>
+                </tr>
+                <tr>
+                    <td><strong>CPM (Cost Per 1000 Impressions)</strong></td>
+                    <td>$2-8 USD</td>
+                    <td>Cambiar hora de ejecución, ajustar presupuesto</td>
+                </tr>
+                <tr>
+                    <td><strong>Conversion Rate</strong></td>
+                    <td>2-5% de visitors → compradores</td>
+                    <td>Revisar landing page, mejorar copy</td>
+                </tr>
+                <tr>
+                    <td><strong>ROAS (Return on Ad Spend)</strong></td>
+                    <td>3:1 o mayor</td>
+                    <td>Pausar ad set, escalar el ganador</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- SECCIÓN 5: CHECKLIST FINAL -->
+        <div class="section">
+            <h2>✅ 5. Checklist Antes de Lanzar</h2>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
+                <div>
+                    <h4 style="color: var(--primary); margin-bottom: 15px;">CREATIVA</h4>
+                    <div class="checklist-item" style="padding-left: 30px; margin-bottom: 10px;">
+                        <input type="checkbox"> 3 Headlines generados
+                    </div>
+                    <div class="checklist-item" style="padding-left: 30px; margin-bottom: 10px;">
+                        <input type="checkbox"> 3 Primary Texts redactados
+                    </div>
+                    <div class="checklist-item" style="padding-left: 30px; margin-bottom: 10px;">
+                        <input type="checkbox"> 3+ Imágenes descargadas (Midjourney/Leonardo)
+                    </div>
+                    <div class="checklist-item" style="padding-left: 30px; margin-bottom: 10px;">
+                        <input type="checkbox"> 3 Videos generados (15-30s)
+                    </div>
+                    <div class="checklist-item" style="padding-left: 30px; margin-bottom: 10px;">
+                        <input type="checkbox"> CTA y Links revisados
+                    </div>
+                </div>
+
+                <div>
+                    <h4 style="color: var(--primary); margin-bottom: 15px;">TÉCNICA</h4>
+                    <div class="checklist-item" style="padding-left: 30px; margin-bottom: 10px;">
+                        <input type="checkbox"> Meta Pixel instalado
+                    </div>
+                    <div class="checklist-item" style="padding-left: 30px; margin-bottom: 10px;">
+                        <input type="checkbox"> Evento Purchase configurado
+                    </div>
+                    <div class="checklist-item" style="padding-left: 30px; margin-bottom: 10px;">
+                        <input type="checkbox"> Landing page optimizada (mobile)
+                    </div>
+                    <div class="checklist-item" style="padding-left: 30px; margin-bottom: 10px;">
+                        <input type="checkbox"> Webhook Zapier funcionando
+                    </div>
+                    <div class="checklist-item" style="padding-left: 30px; margin-bottom: 10px;">
+                        <input type="checkbox"> Segmentaciones de audiencia creadas
+                    </div>
+                </div>
+
+                <div>
+                    <h4 style="color: var(--primary); margin-bottom: 15px;">ESTRATEGIA</h4>
+                    <div class="checklist-item" style="padding-left: 30px; margin-bottom: 10px;">
+                        <input type="checkbox"> 3 Ad Sets por audiencia
+                    </div>
+                    <div class="checklist-item" style="padding-left: 30px; margin-bottom: 10px;">
+                        <input type="checkbox"> Budget asignado ($300-500 USD)
+                    </div>
+                    <div class="checklist-item" style="padding-left: 30px; margin-bottom: 10px;">
+                        <input type="checkbox"> Duración: 7-14 días planificados
+                    </div>
+                    <div class="checklist-item" style="padding-left: 30px; margin-bottom: 10px;">
+                        <input type="checkbox"> Keyword research completado
+                    </div>
+                    <div class="checklist-item" style="padding-left: 30px; margin-bottom: 10px;">
+                        <input type="checkbox"> Competencia analizada
+                    </div>
+                </div>
+
+                <div>
+                    <h4 style="color: var(--primary); margin-bottom: 15px;">MONITOREO</h4>
+                    <div class="checklist-item" style="padding-left: 30px; margin-bottom: 10px;">
+                        <input type="checkbox"> Dashboard configurado (Meta Ads Manager)
+                    </div>
+                    <div class="checklist-item" style="padding-left: 30px; margin-bottom: 10px;">
+                        <input type="checkbox"> Google Analytics conectado
+                    </div>
+                    <div class="checklist-item" style="padding-left: 30px; margin-bottom: 10px;">
+                        <input type="checkbox"> Daily review de ROAS
+                    </div>
+                    <div class="checklist-item" style="padding-left: 30px; margin-bottom: 10px;">
+                        <input type="checkbox"> Ajustes planeados para Día 3-4
+                    </div>
+                    <div class="checklist-item" style="padding-left: 30px; margin-bottom: 10px;">
+                        <input type="checkbox"> Presupuesto de escala preparado
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FOOTER -->
+        <footer>
+            <p style="font-weight: bold;">🚀 Ohana Energy - Paquete Completo Meta Ads</p>
+            <p>Versión 1.0 | Listo para implementación inmediata</p>
+            <p style="margin-top: 15px; font-style: italic;">
+                "Tu energía limpia es nuestra misión. La conversión es el resultado."
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
