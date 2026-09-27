@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ohana Energy - Visual Prompts for Higgsfield</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Courier New', monospace;
+            line-height: 1.7;
+            color: #1f2937;
+            background: #f3f4f6;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #059669 0%, #047857 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 0.95em;
+            opacity: 0.95;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .prompt-section {
+            margin-bottom: 50px;
+            page-break-inside: avoid;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 30px;
+            background: #fafafa;
+        }
+
+        .prompt-number {
+            display: inline-block;
+            background: #059669;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            line-height: 40px;
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+
+        .prompt-title {
+            font-size: 1.3em;
+            color: #047857;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .prompt-subtitle {
+            font-size: 0.9em;
+            color: #6b7280;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .prompt-text {
+            background: white;
+            padding: 25px;
+            border-left: 4px solid #059669;
+            border-radius: 4px;
+            font-size: 0.95em;
+            line-height: 1.8;
+            color: #1f2937;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            font-family: 'Courier New', monospace;
+        }
+
+        .copy-button {
+            background: #059669;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.95em;
+            font-weight: bold;
+            margin-top: 15px;
+            transition: background 0.3s;
+        }
+
+        .copy-button:hover {
+            background: #047857;
+        }
+
+        .info-box {
+            background: #dcfce7;
+            border: 2px solid #059669;
+            padding: 20px;
+            border-radius: 4px;
+            margin: 30px 0;
+        }
+
+        .info-box h3 {
+            color: #047857;
+            margin-bottom: 10px;
+        }
+
+        .info-box p {
+            margin: 8px 0;
+            font-size: 0.95em;
+        }
+
+        .tags {
+            display: flex;
+            gap: 8px;
+            margin: 15px 0;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: #e0e7ff;
+            color: #3730a3;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: bold;
+        }
+
+        .instructions {
+            background: #fef3c7;
+            border: 2px solid #f59e0b;
+            padding: 20px;
+            border-radius: 4px;
+            margin-bottom: 30px;
+        }
+
+        .instructions h2 {
+            color: #b45309;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+
+        .instructions ol {
+            margin-left: 30px;
+            font-size: 0.95em;
+        }
+
+        .instructions li {
+            margin: 10px 0;
+            line-height: 1.6;
+        }
+
+        footer {
+            background: #f3f4f6;
+            padding: 30px 40px;
+            text-align: center;
+            border-top: 1px solid #e5e7eb;
+            font-size: 0.9em;
+            color: #6b7280;
+        }
+
+        .specs-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .spec-item {
+            background: white;
+            padding: 15px;
+            border-left: 3px solid #059669;
+            border-radius: 3px;
+        }
+
+        .spec-label {
+            font-weight: bold;
+            color: #059669;
+            font-size: 0.9em;
+            text-transform: uppercase;
+        }
+
+        .spec-value {
+            margin-top: 5px;
+            color: #1f2937;
+        }
+
+        @media print {
+            body { background: white; }
+            .container { box-shadow: none; }
+            .prompt-section { page-break-inside: avoid; }
+            .copy-button { display: none; }
+        }
+
+        .divider {
+            height: 2px;
+            background: #e5e7eb;
+            margin: 40px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- HEADER -->
+        <div class="header">
+            <h1>🎬 OHANA ENERGY</h1>
+            <p>3 Visual Prompts for Higgsfield AI Image Generation</p>
+            <p style="margin-top: 10px; font-size: 0.9em;">Ready-to-Copy Professional Cinematographic Specifications</p>
+        </div>
+
+        <!-- CONTENT -->
+        <div class="content">
+            <!-- INSTRUCTIONS -->
+            <div class="instructions">
+                <h2>📋 HOW TO USE THESE PROMPTS</h2>
+                <ol>
+                    <li><strong>Copy the entire prompt text</strong> from the white box (click "Copy to Clipboard" button)</li>
+                    <li><strong>Go to Higgsfield.ai</strong> and select "Generate Image"</li>
+                    <li><strong>Paste the prompt</strong> into the prompt field</li>
+                    <li><strong>Adjust if needed:</strong> Color intensity, aspect ratio, or specific elements</li>
+                    <li><strong>Generate</strong> and download your image</li>
+                    <li><strong>Export as JPG</strong> for Meta Ads Manager upload</li>
+                </ol>
+            </div>
+
+            <div class="info-box">
+                <h3>💡 PRO TIPS</h3>
+                <p>✓ These prompts are optimized for Higgsfield's AI model and similar generators (Midjourney, Leonardo)</p>
+                <p>✓ If image is too saturated, add "desaturated, subtle" at the end</p>
+                <p>✓ If lighting is too harsh, add "soft diffused lighting, no harsh shadows"</p>
+                <p>✓ For exact brand green, mention "Pantone 340C green" or request regeneration</p>
+                <p>✓ Generate 3-5 variations of each prompt to find the best</p>
+            </div>
+
+            <!-- PROMPT 1 -->
+            <div class="prompt-section">
+                <div class="prompt-number">1</div>
+                <div class="prompt-title">PROMPT 1: Ohana Energy Morning Mug (Static Image)</div>
+                <div class="prompt-subtitle">FOR: "Pain/3PM Crash" Advertisement</div>
+
+                <div class="tags">
+                    <span class="tag">Product Photography</span>
+                    <span class="tag">Lifestyle</span>
+                    <span class="tag">Minimalist</span>
+                    <span class="tag">Natural Light</span>
+                    <span class="tag">1080x1080px</span>
+                </div>
+
+                <div class="prompt-text">PROFESSIONAL PRODUCT BRIEF - OHANA ENERGY MUG
+
+SCENE SETUP:
+Clean, minimalist Nordic-style home office workspace. Natural morning light streaming through large window (north-facing simulation). Warm golden hour aesthetic. White marble or wooden desk surface. Very subtle background blur.
+
+PRIMARY SUBJECT:
+Ohana Energy matcha beverage in matte ceramic mug (soft sage green, matte finish). Vibrant green matcha liquid inside. Delicate steam rising gently from top. Mug positioned slightly off-center (rule of thirds). Wooden desk with natural grain visible.
+
+BACKGROUND CONTEXT:
+Blurred modern office workspace. Closed laptop (Mac aesthetic, silver finish visible but out of focus). Minimalist desk accessories. Soft greens and neutrals. No clutter. High-end workspace vibe.
+
+LIGHTING SPECIFICATIONS:
+- Key Light: Soft diffuse window light (golden hour warmth, 4500K color temperature), positioned 45° camera-left and elevated
+- Fill Light: White reflector or diffuser panel (60% intensity of key), positioned camera-right to soften shadows on mug
+- Back Light: Subtle rim light behind mug (40% intensity), creating gentle separation and glow effect on steam
+- Shadow Quality: SOFT, NO harsh shadows. Luminosity: High-key (approximately 72% average luminance)
+- Overall Warmth: Cozy morning atmosphere, NOT clinical or sterile
+
+CAMERA SPECIFICATIONS:
+- Camera System: Canon EOS R5 / Sony A7R V equivalent
+- Lens: 85mm f/1.4 focal length
+- Aperture: f/1.8 (shallow depth of field for bokeh)
+- Shutter Speed: 1/125s (clean handheld exposure)
+- ISO: 200 (clean, no noise)
+- White Balance: 5500K (daylight with warm cast)
+- Focus: Tack-sharp on mug/matcha liquid. Background bokeh smooth and creamy
+- Depth: Extreme shallow depth. Background completely out of focus (bokeh ratio approximately 1.5:1)
+
+COMPOSITION:
+- Rule of Thirds: Mug positioned left-third, steam rising through upper-third
+- Negative Space: 45% background (blurred), 55% mug and immediate surroundings
+- Horizon: Diagonal desk edge creates dynamic composition
+- Hands: Optional. If included, 1-2 hands gently cradling mug (not clutching, gentle hold)
+
+COLOR GRADING:
+- Temperature: +280K (noticeably warm, inviting, cozy)
+- Saturation: +16% (rich green is vibrant but natural, not neon)
+- Lift Blacks: +12% (bright, airy, not crushed)
+- Contrast: +7 (subtle pop, definition on mug edges)
+- Vibrancy: Focus on green (mug) and golden (light) tones
+- Grain: +2% (subtle 35mm film aesthetic, not overwhelming)
+- Vignette: -6 (subtle edges darkened, draws focus to mug)
+- Highlights: Creamy, lifted (not blown out)
+
+STYLE REFERENCES:
+- Comparable to: Etsy premium brand photography, Glossier product shots, specialty coffee brand aesthetics
+- Mood: Warm, aspirational, wellness-focused, premium lifestyle
+- NOT: Industrial, clinical, overly minimalist (sterile), harsh lighting
+
+TECHNICAL RESTRICTIONS:
+- NO hard shadows (CRITICAL)
+- NO blown-out highlights on mug
+- NO artificial/plastic appearance
+- NO oversaturation (green should look natural but rich)
+- NO visible texture in background (smooth bokeh)
+- NO busy/cluttered desk
+- AVOID: Cold color temperature (NO blue casts)
+
+FINAL OUTPUT FORMAT:
+- Resolution: 1080x1080px (Instagram Feed optimal)
+- Aspect Ratio: 1:1 square
+- File Format: JPG, high quality (95% compression minimum)
+- Color Space: sRGB (web-safe)
+- Orientation: Landscape-style desk composition
+
+MOOD & EMOTIONAL TONE:
+Fresh, energetic, calm, aspirational. This is what "clean energy" looks like. Premium lifestyle. Morning productivity. Wellness without sacrifice.</div>
+
+                <button class="copy-button" onclick="copyToClipboard(this)">📋 Copy to Clipboard</button>
+            </div>
+
+            <div class="divider"></div>
+
+            <!-- PROMPT 2 -->
+            <div class="prompt-section">
+                <div class="prompt-number">2</div>
+                <div class="prompt-title">PROMPT 2: Split-Screen Before/After (Static Image)</div>
+                <div class="prompt-subtitle">FOR: "Chemical Comparison" Advertisement</div>
+
+                <div class="tags">
+                    <span class="tag">Split-Screen</span>
+                    <span class="tag">Comparison</span>
+                    <span class="tag">Dramatic Contrast</span>
+                    <span class="tag">Before/After</span>
+                    <span class="tag">1080x1080px</span>
+                </div>
+
+                <div class="prompt-text">SPLIT-SCREEN COMPARATIVE BRIEF - BEFORE vs AFTER (3PM CRASH)
+
+OVERALL COMPOSITION:
+Exact 50/50 vertical split-screen. Left side: "The Problem" (desaturated, cold, stressful). Right side: "The Solution" (warm, vibrant, calm). Dramatic visual contrast. Professional editorial comparison format.
+
+==========================================
+LEFT SIDE: "THE 3PM CRASH" (PROBLEM)
+==========================================
+
+SCENE: Office desk at 3:00 PM
+- Time of day: Late afternoon (tired lighting, harsh window angle)
+- Desk state: Disorganized, cluttered with work materials
+- Multiple empty coffee cups (3-4 visible), crumpled papers, pen scattered
+- Laptop open, but tilted away (disengagement)
+- Ambient: Chaotic, stressful workspace
+
+SUBJECT: Woman (Latino ethnicity, 28-38 years old)
+- Posture: Slumped over desk, head resting on hand (exhausted pose)
+- Facial Expression: Frustrated, fatigued, dark circles under eyes visible
+- Gesture: One hand on forehead (stress sign), other limp on desk
+- Clothing: Professional but rumpled (tie loosened, shirt wrinkled)
+- Energy: Complete burnout, hitting the wall
+
+LIGHTING (LEFT SIDE):
+- Key Light: Harsh afternoon window light (creates hard shadows)
+- Color Temperature: 6500K (cool, blue-shifted daylight, institutional feel)
+- Quality: Harsh, directional (No fill light - shadows are dark and defined)
+- Mood: Exhausted, clinical, draining
+
+DESK DETAILS:
+- Empty coffee cups (white ceramic, dark residue visible)
+- Crumpled papers, sticky notes everywhere
+- Empty energy drink can (visual storytelling: "She tried everything")
+- Clock showing 3:15 PM (CRITICAL visual)
+- Dim ambient lighting (overcast sky feel)
+
+COLOR GRADING (LEFT):
+- Temperature: -250K (VERY COLD, institutional blue cast)
+- Saturation: -35% (DESATURATED, washed out, lifeless)
+- Contrast: +12 (Harsh, defined, uncomfortable)
+- Lift Blacks: -5 (Dark, heavy, oppressive feeling)
+- Vibrancy: Muted greys, washed blues (depressing palette)
+- Grain: +8% (gritty, worn-out film aesthetic)
+- Overall: Looks like a harsh documentary / sad news story
+
+==========================================
+RIGHT SIDE: "OHANA ENERGY SOLUTION"
+==========================================
+
+SCENE: Same office desk, same time, TRANSFORMED
+- Time of day: Golden afternoon light (warm, inviting)
+- Desk state: Clean, organized, intentional workspace
+- Ohana Energy mug: Prominently displayed with vibrant green matcha visible
+- Laptop open and engaged, woman is actively working/typing
+- Workspace: Calm, productive, zen-like organization
+
+SUBJECT: Same woman - ENERGIZED VERSION
+- Posture: Upright, engaged, sitting confidently at desk
+- Facial Expression: Genuine smile, alert eyes, peaceful confidence
+- Gesture: One hand holding Ohana mug (sipping), other on keyboard (working)
+- Clothing: Same professional outfit, but now looks fresh and neat
+- Energy: Calm productivity, in-flow state, ZERO stress
+
+LIGHTING (RIGHT SIDE):
+- Key Light: Warm golden afternoon light (4200K, soft diffuse quality)
+- Fill Light: Soft ambient room lighting (gentle, no harsh shadows)
+- Quality: Soft, flattering, warm (3-point setup with gentle back separation)
+- Mood: Calm, focused, peaceful, professional energy
+
+DESK DETAILS:
+- Ohana Energy mug: Prominent, steam visible, sage green color
+- Organized desk: Only essential items (notebook, pen, water glass)
+- Green plant (subtle, reinforces "natural energy" theme)
+- Clock showing 3:15 PM (SAME TIME as left - proving point)
+- Natural, organized aesthetic
+
+COLOR GRADING (RIGHT):
+- Temperature: +320K (VERY WARM, inviting, golden afternoon)
+- Saturation: +25% (RICH, vibrant, alive - especially greens)
+- Contrast: +5 (Soft, comfortable, welcoming)
+- Lift Blacks: +18% (BRIGHT, clean, energetic)
+- Vibrancy: Warm golds, rich greens, natural skin tones pop
+- Grain: +1% (Smooth, premium feel)
+- Overall: Looks like aspirational lifestyle brand photography (Glossier aesthetic)
+
+==========================================
+VISUAL CONTRAST ELEMENTS (CRITICAL):
+
+Color Palette Shift:
+LEFT: Greys, washed blues, desaturated browns → RIGHT: Warm golds, vibrant greens, natural skin tones
+
+Lighting Transition:
+LEFT: Harsh, directional, shadows → RIGHT: Soft, diffuse, glowing
+
+Emotional Energy:
+LEFT: Dead, exhausted, defeated → RIGHT: Alive, engaged, victorious
+
+Time Reference:
+BOTH: 3:15 PM (Same moment, different realities - proving Ohana works)
+
+==========================================
+TECHNICAL SPECIFICATIONS:
+
+CAMERA (Both Sides):
+- Camera: Sony A7IV equivalent
+- Lens: 50mm f/2.0 (neutral, editorial comparison standard)
+- Aperture: f/2.8 (slight shallow depth, not extreme)
+- Shutter: 1/100s
+- ISO: 400 (indoor office setting)
+- Focus: Sharp on faces and Ohana mug (right side)
+
+COMPOSITION:
+- Vertical split down middle (precisely 50/50)
+- Both sides show full workspace context (desk, clock, materials)
+- Faces centered in each half
+- Mug positioned prominently (right side, rule of thirds)
+- NO visible dividing line (seamless blend or subtle white line)
+- Both sides fill frame equally
+
+OUTPUT FORMAT:
+- Resolution: 1080x1080px (Instagram square optimal)
+- OR: 1080x1350px (Instagram feed portrait for vertical emphasis)
+- Aspect Ratio: 1:1 or 4:5
+- File Format: JPG, high quality
+
+MOOD & NARRATIVE:
+This is the POWER of Ohana Energy. Same person. Same time (3PM). Same desk. Completely different reality. One choice changes everything. Before (traditional coffee) = Crash. After (Ohana) = Flow state.
+
+COMPARABLE AESTHETICS:
+- Before/after weight loss ads (but health-focused, not extreme)
+- Productivity tool marketing (Asana, Notion vibes)
+- Wellness brand comparisons (Calm app, health apps)
+- Professional transformation stories
+
+CRITICAL TONE:
+NOT dramatic/extreme. This is REAL. This is ACHIEVABLE. Left side is relatable (everyone crashes at 3PM). Right side is aspirational but ATTAINABLE with Ohana.</div>
+
+                <button class="copy-button" onclick="copyToClipboard(this)">📋 Copy to Clipboard</button>
+            </div>
+
+            <div class="divider"></div>
+
+            <!-- PROMPT 3 -->
+            <div class="prompt-section">
+                <div class="prompt-number">3</div>
+                <div class="prompt-title">PROMPT 3: Focused Professional in Flow State (Lifestyle Image)</div>
+                <div class="prompt-subtitle">FOR: "Performance & Calm Focus" Advertisement</div>
+
+                <div class="tags">
+                    <span class="tag">Lifestyle</span>
+                    <span class="tag">Productivity</span>
+                    <span class="tag">Focused Work</span>
+                    <span class="tag">Zen Aesthetic</span>
+                    <span class="tag">1200x1500px</span>
+                </div>
+
+                <div class="prompt-text">LIFESTYLE BRIEF - PROFESSIONAL IN FLOW STATE
+
+CONCEPTUAL FOUNDATION:
+This image tells the story of "calm productivity" - the ideal work state. The subject is intensely focused but completely relaxed. No stress visible. No caffeine jitters. Pure flow state energy. This is what Ohana Energy enables.
+
+SCENE SETTING:
+Modern, minimalist home office or co-working space. High ceilings (airyness). Lots of natural light but warm-toned (late morning or early afternoon). Clean aesthetic. Scandinavian/Japanese minimalism influence. Organized but lived-in (not sterile showroom). Neutral color palette with subtle green accents.
+
+ENVIRONMENTAL DETAILS:
+- Desk: Wooden or light natural material, minimal items (laptop, Ohana mug, notebook)
+- Ohana Energy Mug: Prominently displayed, sage green ceramic, within arm's reach, steam visible (actively drinking/just had)
+- Workspace: Clean but not obsessively organized (real productivity space, not Instagram fake)
+- Background: Soft bokeh of plants, window, or other office elements (no distracting clutter)
+- Lighting: Natural window light, warm undertones, soft diffuse quality
+
+PRIMARY SUBJECT (HERO):
+Professional creative (age 25-40, diverse ethnicity preferred, gender neutral/woman optional)
+- Posture: Slightly leaned forward (engaged), shoulders relaxed (not tense), back straight (confident)
+- Hand Position: Hands on keyboard (active work), or one hand near Ohana mug (sipping mid-focus)
+- Facial Expression: Concentrating intently, slight smile/serene expression, eyes on screen with laser focus
+- Eye Gaze: Fixed on laptop screen (deep work engagement)
+- Clothing: Casual professional (hoodie, t-shirt, blazer - clean, put-together but not formal)
+- Hair: Natural, clean, styled but not overdone
+- Skin Tone: Natural, healthy glow (NO makeup visible, fresh look)
+- Energy: Calm + intense simultaneously (the paradox of flow state)
+
+CRUCIAL EMOTIONAL ELEMENTS:
+- NO tension visible in face or shoulders
+- NO furrowed brows or stressed expression
+- NO caffeine jitters (jittery posture, fidgeting)
+- YES: Deep concentration with inner peace
+- YES: This person is "in the zone" but not stressed
+- YES: Ohana Energy enables this state
+
+LIGHTING SPECIFICATIONS:
+Key Light: Warm window light (4200-4500K color temperature), positioned 45° camera-left, soft diffuse quality
+- Window diffused through sheer curtain or natural overcast (NO harsh direct sun)
+- Creates flattering side-light on face (dimensional, not flat)
+- Illuminates desktop and Ohana mug beautifully
+
+Fill Light: Soft ambient room lighting (gentle fill, 50-60% of key intensity)
+- Prevents harsh shadows under eyes and jawline
+- Keeps workspace well-lit without blown highlights
+
+Back Light: Subtle rim light (60% key intensity) from behind subject
+- Separates subject from background
+- Warm glow on shoulders/hair
+- NOT overdone - should be subtle, professional
+
+Shadow Quality: SOFT, diffuse, no harsh definition. Warm color cast in shadows (not blue/cold).
+
+Overall Luminosity: Medium-high key (approximately 58-62% average luminance). Not overly bright (clinical), not dim (moody).
+
+COLOR GRADING (COMPREHENSIVE):
+
+Temperature: +200K (noticeably warm, welcoming, creative energy)
+Saturation: +14% (Rich, vibrant, but natural - not oversaturated)
+Highlights: Creamy, lifted, clean (blown-out is a sin - keep detail)
+Shadows: Warm cast (lift blacks +8%), detail preserved
+Skin Tone: Natural radiance, warm undertones, healthy glow (+5% warmth boost)
+Contrast: +6 (Subtle definition, NOT harsh or dramatic)
+Vibrancy: Emphasize:
+  → Green (Ohana mug should POP with natural vibrancy)
+  → Warm golden tones (light, clothing, desk)
+  → Natural skin tones
+Grain: +1-2% (Subtle 35mm film aesthetic, clean professional look)
+Vignette: -4 (Very subtle edge darkening, focuses attention on subject)
+Green Channel: +12% boost (brand color, but still natural)
+
+STYLE & MOOD:
+Professional editorial lifestyle photography (comparable to LinkedIn premium profiles, TED speaker photos, entrepreneurship brands)
+Aesthetic: Modern minimalist workspace
+Feeling: Calm mastery, flow state, creative confidence
+Comparable Brands: Basecamp, Notion, Patagonia, Outdoor Voices (wellness-focused work)
+NOT: Stressful (no clutching chest), corporate (too formal), boring (engaging and aspirational)
+
+CAMERA SPECIFICATIONS:
+Camera System: Sony A7IV or Canon R7 equivalent (professional mirrorless)
+Lens: 35mm f/1.4 focal length (environmental portrait, shows context + subject)
+Aperture: f/1.8-2.0 (shallow depth, subtle bokeh in background without extreme separation)
+Shutter Speed: 1/80-1/125s (clean handheld exposure, slight motion blur if needed)
+ISO: 400-800 (indoor office setting, clean sensor)
+White Balance: 5500K daylight (with warm color grading applied)
+Focus: Tack-sharp on subject's face/eyes. Keyboard and Ohana mug acceptably sharp. Background smoothly out of focus.
+Depth: Moderate shallow depth. Subject sharp, background bokeh present but not extreme. Show environment context.
+
+COMPOSITION:
+- Position: Subject occupies left 60% of frame, right 40% negative space (workspace context)
+- Eye Level: Camera at seated eye-level (slightly above horizontal)
+- Rule of Thirds: Eyes positioned in upper third, Ohana mug in lower-right third
+- Negative Space: Desk/workspace visible on right and above subject
+- Horizon: Desk edge creates natural horizon line
+- Depth: Window/plants visible softly in background bokeh
+
+HAND/MUG POSITIONING (Critical Detail):
+Option A: One hand on keyboard, other hand near Ohana mug (actively sipping or just set down)
+Option B: Both hands on keyboard (typing), Ohana mug visible off to side (just had a sip, about to continue)
+Option C: Hands resting on desk, Ohana mug prominently held, direct contact with product
+Choose based on flow - show Ohana as PART OF THE WORK RITUAL, not separate from it.
+
+ENVIRONMENT DETAILS (Visual Storytelling):
+- Small potted plant (corner background, subtle, reinforces "natural energy")
+- Closed notebook with pen (shows organization and intention)
+- Minimal desk accessories (NO clutter)
+- Window with soft natural light visible (source of warmth)
+- Modern laptop (Mac aesthetic preferred, if brand-agnostic)
+- NO visible stress items (coffee cups, energy drinks, medications, etc.)
+
+WHAT TO AVOID (CRITICAL):
+- NO visible tension or stress in facial expression
+- NO aggressive focus (furrowed brows, clenched jaw)
+- NO cluttered desk (contradiction to calm aesthetic)
+- NO harsh shadows (soft light only)
+- NO cold color temperature (WARM ALWAYS)
+- NO caffeine jitters posture (no fidgeting, no scattered energy)
+- NO corporate/stiff formality
+- NO extreme shallow depth (need to see environment)
+- NO visible multiple coffee cups (would contradict "Ohana replaces traditional coffee")
+
+OUTPUT FORMAT:
+- Resolution: 1200x1500px (Instagram feed portrait optimal, shows full environment)
+- OR: 1080x1350px (Standard IG feed height)
+- Aspect Ratio: 4:5 (portrait, shows context above and around subject)
+- File Format: JPG, high quality (95% compression minimum)
+- Color Space: sRGB (web-safe)
+- Retouching: Minimal (clear skin, but maintain texture and realness, NOT plastic)
+
+FINAL MOOD & EMOTIONAL RESONANCE:
+This is the GOAL STATE. This is what's possible with Ohana Energy. Intense focus without anxiety. Calm without tiredness. Deep work without suffering. Flow state accessible through better energy choices. This is your future self after choosing Ohana.
+
+COMPARABLE AESTHETIC REFERENCES:
+- LinkedIn premium profile photography (professional but aspirational)
+- Notion blog header images (creative, focused, modern)
+- Basecamp marketing (remote work wellness)
+- Patagonia employee photography (calm intensity, outdoor/wellness vibe)
+- Meditation app promos (peaceful, focused, zen)
+
+BRAND STORY:
+This image completes the narrative. Left side (Split-Screen) showed the PROBLEM. This image shows the SOLUTION IN ACTION. The viewer should think: "That could be me. I could have this calm, focused, productive state." That's the power of Ohana Energy visualized.</div>
+
+                <button class="copy-button" onclick="copyToClipboard(this)">📋 Copy to Clipboard</button>
+            </div>
+
+        </div>
+
+        <!-- FOOTER -->
+        <footer>
+            <p><strong>🎬 Ohana Energy - Higgsfield Visual Prompts</strong></p>
+            <p>Version 1.0 | Optimized for AI Image Generation (Higgsfield, Midjourney, Leonardo)</p>
+            <p style="margin-top: 15px;">Generated with professional cinematographic specifications</p>
+            <p style="margin-top: 20px; font-style: italic;">
+                "Every image tells the Ohana story: Clean energy. Calm focus. Real productivity."
+            </p>
+        </footer>
+    </div>
+
+    <script>
+        function copyToClipboard(button) {
+            // Find the prompt-text div in the same section
+            const promptSection = button.closest('.prompt-section');
+            const promptText = promptSection.querySelector('.prompt-text');
+
+            if (promptText) {
+                // Get the text content
+                const text = promptText.textContent;
+
+                // Copy to clipboard
+                navigator.clipboard.writeText(text).then(() => {
+                    // Change button text temporarily
+                    const originalText = button.textContent;
+                    button.textContent = '✅ Copied!';
+                    button.style.background = '#047857';
+
+                    // Revert after 2 seconds
+                    setTimeout(() => {
+                        button.textContent = originalText;
+                        button.style.background = '#059669';
+                    }, 2000);
+                }).catch(() => {
+                    alert('Failed to copy. Please try manual copy.');
+                });
+            }
+        }
+    </script>
+</body>
+</html>
