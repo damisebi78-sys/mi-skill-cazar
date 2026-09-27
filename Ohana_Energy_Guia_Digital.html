@@ -1,0 +1,965 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ohana Energy: Guía y Protocolo de Energía Limpia</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        @page {
+            size: A4;
+            margin: 2cm;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7;
+            color: #1f2937;
+            background: white;
+            padding: 20px;
+        }
+
+        /* Colores de marca */
+        :root {
+            --primary: #059669;
+            --primary-dark: #047857;
+            --accent: #f59e0b;
+            --neutral-light: #f3f4f6;
+            --neutral-dark: #6b7280;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+        }
+
+        /* Portada */
+        .cover {
+            text-align: center;
+            padding: 80px 40px;
+            background: linear-gradient(135deg, #059669 0%, #047857 100%);
+            color: white;
+            page-break-after: always;
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .cover h1 {
+            font-size: 3.5em;
+            font-weight: 900;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+
+        .cover .subtitle {
+            font-size: 1.3em;
+            margin-bottom: 40px;
+            opacity: 0.95;
+            font-weight: 300;
+        }
+
+        .cover .tagline {
+            font-size: 0.95em;
+            margin-top: 60px;
+            opacity: 0.85;
+            border-top: 2px solid rgba(255, 255, 255, 0.3);
+            padding-top: 30px;
+            max-width: 400px;
+        }
+
+        /* Índice */
+        .toc {
+            page-break-after: always;
+            padding: 60px 40px;
+            background: var(--neutral-light);
+        }
+
+        .toc h2 {
+            color: var(--primary);
+            margin-bottom: 30px;
+            font-size: 2em;
+        }
+
+        .toc ul {
+            list-style: none;
+        }
+
+        .toc li {
+            padding: 10px 0;
+            padding-left: 30px;
+            font-size: 1.1em;
+            border-left: 3px solid var(--primary);
+            margin-left: 0;
+        }
+
+        .toc li strong {
+            color: var(--primary);
+        }
+
+        /* Capítulos */
+        .chapter {
+            page-break-before: always;
+            padding: 60px 40px;
+        }
+
+        .chapter h2 {
+            color: var(--primary);
+            font-size: 2.2em;
+            margin-bottom: 20px;
+            border-bottom: 3px solid var(--primary);
+            padding-bottom: 15px;
+        }
+
+        .chapter-number {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            line-height: 45px;
+            text-align: center;
+            font-weight: bold;
+            margin-right: 15px;
+            font-size: 1.2em;
+        }
+
+        .chapter h2 span {
+            vertical-align: middle;
+        }
+
+        .chapter h3 {
+            color: var(--primary-dark);
+            font-size: 1.4em;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        .chapter p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        /* Bloques destacados */
+        .highlight-box {
+            background: var(--neutral-light);
+            border-left: 4px solid var(--primary);
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 4px;
+        }
+
+        .highlight-box strong {
+            color: var(--primary);
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        /* Listas */
+        ul, ol {
+            margin: 20px 0;
+            margin-left: 30px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        /* Tablas */
+        table {
+            width: 100%;
+            margin: 25px 0;
+            border-collapse: collapse;
+            font-size: 0.95em;
+        }
+
+        th {
+            background: var(--primary);
+            color: white;
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        tr:nth-child(even) {
+            background: var(--neutral-light);
+        }
+
+        /* Recetas */
+        .recipe {
+            background: #fef3c7;
+            border: 2px solid var(--accent);
+            border-radius: 8px;
+            padding: 25px;
+            margin: 25px 0;
+        }
+
+        .recipe h4 {
+            color: #b45309;
+            font-size: 1.2em;
+            margin-bottom: 15px;
+        }
+
+        .recipe-section {
+            margin: 15px 0;
+        }
+
+        .recipe-section strong {
+            display: block;
+            color: #b45309;
+            margin-bottom: 8px;
+            font-size: 0.95em;
+        }
+
+        /* Checklist */
+        .checklist {
+            background: #dcfce7;
+            border: 2px solid var(--primary);
+            border-radius: 8px;
+            padding: 25px;
+            margin: 25px 0;
+        }
+
+        .checklist h4 {
+            color: var(--primary-dark);
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+
+        .checklist-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 12px;
+            font-size: 0.95em;
+        }
+
+        .checklist-box {
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--primary);
+            border-radius: 3px;
+            margin-right: 12px;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        /* Pie de página */
+        footer {
+            text-align: center;
+            padding: 40px;
+            color: var(--neutral-dark);
+            font-size: 0.9em;
+            border-top: 1px solid #e5e7eb;
+            margin-top: 60px;
+        }
+
+        footer p {
+            margin-bottom: 8px;
+        }
+
+        /* Impresión */
+        @media print {
+            body {
+                padding: 0;
+            }
+            .container {
+                max-width: 100%;
+            }
+            .chapter, .toc, .cover {
+                page-break-after: always;
+            }
+        }
+
+        /* Bonus Section */
+        .bonus-section {
+            page-break-before: always;
+            padding: 60px 40px;
+            background: linear-gradient(135deg, rgba(5, 150, 105, 0.05) 0%, rgba(4, 120, 87, 0.05) 100%);
+        }
+
+        .bonus-section h2 {
+            color: var(--primary);
+            font-size: 2.2em;
+            margin-bottom: 30px;
+        }
+
+        /* Disclaimer */
+        .disclaimer {
+            background: #fee2e2;
+            border-left: 4px solid #dc2626;
+            padding: 15px;
+            margin: 25px 0;
+            border-radius: 4px;
+            font-size: 0.9em;
+            color: #7f1d1d;
+        }
+
+        .emoji {
+            margin-right: 8px;
+        }
+
+        strong.primary {
+            color: var(--primary);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- PORTADA -->
+        <section class="cover">
+            <div>
+                <h1>🌿 OHANA ENERGY</h1>
+                <p class="subtitle">Guía y Protocolo de Energía Limpia</p>
+                <p class="tagline">Cómo recuperar tu energía natural en 7 días sin café excesivo, sin crash de las 3 PM y sin sintéticos adictivos.</p>
+            </div>
+        </section>
+
+        <!-- ÍNDICE -->
+        <section class="toc">
+            <h2>📑 Índice</h2>
+            <ul>
+                <li><strong>Capítulo 1:</strong> El Problema del Café en Exceso y los Energizantes Sintéticos</li>
+                <li><strong>Capítulo 2:</strong> La Fórmula de Ohana Energy (Ingredientes y Proporciones)</li>
+                <li><strong>Capítulo 3:</strong> Protocolo de 7 Días para Recuperar la Energía Natural</li>
+                <li><strong>Anexo A:</strong> Recetario de 5 Batidos Adaptógenos</li>
+                <li><strong>Anexo B:</strong> Checklist Diario Imprimible</li>
+            </ul>
+        </section>
+
+        <!-- CAPÍTULO 1 -->
+        <section class="chapter">
+            <h2><span class="chapter-number">1</span>El Problema del Café en Exceso y los Energizantes Sintéticos</h2>
+
+            <h3>🚨 La Crisis de la Energía Falsa</h3>
+            <p>
+                Vivimos en una era paradójica: nunca tuvimos más acceso a bebidas "energizantes", pero nunca nos sentimos más cansados.
+                Millones de personas comienzan el día con dos, tres, hasta cuatro tazas de café, suplementadas con bebidas energéticas
+                llenas de taurina, guaraná y cafeína sintética. ¿El resultado? Un ciclo adictivo de "picos y caídas" que destruye tu
+                vitalidad a nivel celular.
+            </p>
+
+            <div class="highlight-box">
+                <strong>📊 El Fenómeno del "Crash de las 3 PM"</strong>
+                <p>
+                    Entre las 2 y las 4 PM, millones de personas experimentan una caída dramática de energía. No es coincidencia.
+                    Es la consecuencia química de haber consumido cafeína sintética o café en exceso a primera hora. Tu páncreas se
+                    agota, tu cortisol se desmorona y tu cuerpo entra en "modo supervivencia".
+                </p>
+            </div>
+
+            <h3>🧪 ¿Qué sucede en tu cuerpo cuando consumes café en exceso?</h3>
+            <ul>
+                <li><strong>Picos de adrenalina:</strong> Tu cuerpo libera adrenalina rápidamente, generando un "subidón" falso que dura 2-4 horas.</li>
+                <li><strong>Acidez estomacal:</strong> El café estimula la producción de ácido gástrico, irritando tu sistema digestivo.</li>
+                <li><strong>Insomnio y ansiedad:</strong> La cafeína permanece en tu sistema 8-10 horas, saboteando tu sueño.</li>
+                <li><strong>Adicción química:</strong> Tu cerebro genera dependencia de dopamina sintética, necesitando más dosis cada vez.</li>
+                <li><strong>Cortisol descontrolado:</strong> El estrés del "crash" eleva tu cortisol, envejece tu piel y aumenta grasa abdominal.</li>
+                <li><strong>Déficit mineral:</strong> La cafeína interfiere con la absorción de magnesio, calcio y otros minerales esenciales.</li>
+            </ul>
+
+            <h3>💊 Los Energizantes Sintéticos: Aún Peor</h3>
+            <p>
+                Las bebidas energéticas comerciales combinan cafeína sintética con aditivos químicos que aceleran el problema:
+            </p>
+            <ul>
+                <li><strong>Taurina:</strong> Un aminoácido que en exceso puede afectar la presión arterial y el corazón.</li>
+                <li><strong>Guaraná:</strong> Contiene más cafeína que el café; es una bomba de sobre-estimulación.</li>
+                <li><strong>Azúcares refinados:</strong> Provocan picos de glucosa, seguidos de caídas aún más profundas.</li>
+                <li><strong>Colorantes y preservantes:</strong> Algunos vinculados a déficit de atención e hiperactividad.</li>
+            </ul>
+
+            <div class="highlight-box">
+                <strong>🎯 La Verdad Incómoda</strong>
+                <p>
+                    El café y los energizantes no te dan energía real. Te la <em>prestan</em> de tu reserva corporal,
+                    generando una deuda que crece cada día. Cuando dejas de consumir, sufres dolores de cabeza, fatiga extrema
+                    y depresión—síntomas típicos de abstinencia química.
+                </p>
+            </div>
+
+            <h3>✨ Existe Una Alternativa</h3>
+            <p>
+                Tu cuerpo <strong>sabe cómo generar energía real</strong>. No necesitas química sintética. Necesitas los
+                ingredientes correctos en las proporciones exactas para activar tus sistemas naturales de vigor y enfoque.
+            </p>
+            <p>
+                Esto es lo que descubrimos en <strong>Ohana Energy</strong>.
+            </p>
+        </section>
+
+        <!-- CAPÍTULO 2 -->
+        <section class="chapter">
+            <h2><span class="chapter-number">2</span>La Fórmula de Ohana Energy: Ingredientes y Proporciones</h2>
+
+            <h3>🧬 Los 3 Pilares Científicos</h3>
+            <p>
+                Ohana Energy combina tres sistemas bioquímicos que trabajan en sinergia para darte energía limpia,
+                enfoque mental y resistencia sin crash.
+            </p>
+
+            <h3>1️⃣ ADAPTÓGENOS: El Equilibrio del Cortisol</h3>
+            <p>
+                Los adaptógenos son plantas que ayudan a tu cuerpo a <em>adaptarse</em> al estrés, regulando el cortisol
+                y manteniendo la energía estable. A diferencia del café, que fuerza un pico, los adaptógenos suavizan la curva.
+            </p>
+
+            <div class="highlight-box">
+                <strong>Ingredientes Adaptógenos en Ohana:</strong>
+                <ul style="margin: 0; margin-left: 20px;">
+                    <li><strong>Maca peruana (500 mg):</strong> Aumenta la resistencia física y mejora el enfoque sin estimular el sistema nervioso. Ricos en vitaminas B y minerales.</li>
+                    <li><strong>Ashwagandha (250 mg):</strong> Reduce cortisol y ansiedad. Generan una sensación de calma alertada—exactamente lo que necesitas a las 10 AM.</li>
+                </ul>
+            </div>
+
+            <h3>2️⃣ COMPLEJO B: La Energía Celular Real</h3>
+            <p>
+                El café y los energizantes crean la <em>ilusión</em> de energía. El Complejo B crea energía <em>verdadera</em>
+                a nivel celular, permitiendo que tus mitocondrias conviertan alimentos en ATP (la moneda de energía del cuerpo).
+            </p>
+
+            <div class="highlight-box">
+                <strong>Ingredientes de Complejo B en Ohana:</strong>
+                <ul style="margin: 0; margin-left: 20px;">
+                    <li><strong>Vitamina B1 (Tiamina, 2 mg):</strong> Convierte carbohidratos en energía. Esencial para el sistema nervioso.</li>
+                    <li><strong>Vitamina B6 (Piridoxina, 5 mg):</strong> Regula neurotransmisores (dopamina, serotonina). Da claridad mental.</li>
+                    <li><strong>Vitamina B12 (Cobalamina, 10 mcg):</strong> Metaboliza proteínas y grasas. Crucial para la memoria y el enfoque.</li>
+                    <li><strong>Ácido Fólico (B9, 400 mcg):</strong> Produce glóbulos rojos, mejora la oxigenación cerebral.</li>
+                </ul>
+            </div>
+
+            <h3>3️⃣ MAGNESIO: La Relajación Alerta</h3>
+            <p>
+                El magnesio es el "amortiguador" natural del cuerpo. Sin él, la cafeína genera pánico y taquicardia.
+                Con él, tienes enfoque sereno sin ansiedad.
+            </p>
+
+            <div class="highlight-box">
+                <strong>Ingredientes de Magnesio en Ohana:</strong>
+                <ul style="margin: 0; margin-left: 20px;">
+                    <li><strong>Magnesio Bisglicinato (200 mg):</strong> La forma más absorbible. Relaja músculos sin causar somnolencia. Mejora el sueño nocturno.</li>
+                </ul>
+            </div>
+
+            <h3>Los Potenciadores: L-Teanina, Matcha y Cacao Puro</h3>
+            <p>
+                Estos ingredientes amplían los efectos de los pilares anteriores:
+            </p>
+            <ul>
+                <li><strong>L-Teanina (100 mg):</strong> Un aminoácido que neutraliza la ansiedad del café. Genera ondas cerebrales "alfa" (calma + enfoque). Trabaja mejor con pequeñas dosis de cafeína natural.</li>
+                <li><strong>Té Matcha (2 g):</strong> Contiene solo 70 mg de cafeína natural (vs. 200+ mg del café). Tiene L-Teanina natural. La cafeína se libera lentamente, sin picos.</li>
+                <li><strong>Cacao Puro (10 g, 75% cacao mínimo):</strong> Rico en feniletilamina (similar a la dopamina). Contiene polifenoles antioxidantes. Sabor delicioso, sin azúcares.</li>
+            </ul>
+
+            <h3>📋 La Receta Exacta de Ohana Energy (1 Porción)</h3>
+            <table>
+                <tr>
+                    <th>Ingrediente</th>
+                    <th>Cantidad</th>
+                    <th>Función</th>
+                </tr>
+                <tr>
+                    <td>Té Matcha en polvo</td>
+                    <td>2 g (1 cucharadita)</td>
+                    <td>Cafeína natural + L-Teanina</td>
+                </tr>
+                <tr>
+                    <td>Agua caliente (70-80°C)</td>
+                    <td>150 ml</td>
+                    <td>Base</td>
+                </tr>
+                <tr>
+                    <td>Maca en polvo</td>
+                    <td>0.5 g (1/4 cucharadita)</td>
+                    <td>Resistencia + enfoque</td>
+                </tr>
+                <tr>
+                    <td>Ashwagandha en polvo</td>
+                    <td>0.25 g (pizca)</td>
+                    <td>Equilibrio cortisol</td>
+                </tr>
+                <tr>
+                    <td>Complejo B (polvo)</td>
+                    <td>1 cucharadita</td>
+                    <td>Energía celular</td>
+                </tr>
+                <tr>
+                    <td>Magnesio Bisglicinato (polvo)</td>
+                    <td>0.5 cucharadita</td>
+                    <td>Relajación alerta</td>
+                </tr>
+                <tr>
+                    <td>Cacao puro en polvo</td>
+                    <td>1 cucharada</td>
+                    <td>Dopamina + antioxidantes</td>
+                </tr>
+                <tr>
+                    <td>Leche (almendra o vaca)</td>
+                    <td>100 ml</td>
+                    <td>Textura + absorción</td>
+                </tr>
+                <tr>
+                    <td>Miel o stevia (opcional)</td>
+                    <td>1 cucharadita</td>
+                    <td>Endulzante natural</td>
+                </tr>
+            </table>
+
+            <h3>⏱️ Preparación (2 minutos)</h3>
+            <ol>
+                <li>Calienta el agua a 70-80°C (no hirviendo, para preservar nutrientes).</li>
+                <li>Vierte el matcha en una taza y añade un poco de agua caliente. Bate hasta disolver completamente (no deben quedar grumos).</li>
+                <li>Añade maca, ashwagandha, complejo B y magnesio. Revuelve bien.</li>
+                <li>Calienta la leche (puedes usar la misma agua) y viértela en la taza.</li>
+                <li>Agrega cacao puro en polvo y miel si deseas.</li>
+                <li>Bate o revuelve hasta lograr una bebida homogénea.</li>
+                <li>¡Listo! Bebe inmediatamente para máxima potencia.</li>
+            </ol>
+
+            <div class="highlight-box">
+                <strong>💡 Pro Tip: La Proporción del Éxito</strong>
+                <p>
+                    La clave está en el balance. El matcha aporta cafeína suave, la L-Teanina la suaviza,
+                    el magnesio evita ansiedad, y los adaptógenos hacen el trabajo profundo.
+                    Demasiada cafeína = crash. Muy poca = sin efecto. La fórmula de Ohana está optimizada
+                    para que obtengas el "punto dulce" de energía limpia.
+                </p>
+            </div>
+        </section>
+
+        <!-- CAPÍTULO 3 -->
+        <section class="chapter">
+            <h2><span class="chapter-number">3</span>Protocolo de 7 Días para Recuperar Energía Natural</h2>
+
+            <h3>🎯 Cómo Desintoxicarte de la Cafeína Sintética Sin Dolor de Cabeza</h3>
+            <p>
+                Si eres un consumidor heavy de café o bebidas energéticas, tu cuerpo está acostumbrado a picos
+                de dopamina artificial. Un cambio abrupto puede causar dolores de cabeza, fatiga y mal humor.
+                Este protocolo te desintoxica <strong>sin sufrimiento</strong> mientras introduces Ohana Energy.
+            </p>
+
+            <h3>📅 Día 1-2: La Transición Suave</h3>
+            <div class="highlight-box">
+                <strong>Objetivo:</strong> Reducir cafeína sintética en un 50% sin que te duela la cabeza.
+            </div>
+            <ul>
+                <li><strong>Mañana:</strong> Bebe tu Ohana Energy habitual (70 mg de cafeína natural).</li>
+                <li><strong>Mid-morning (10:30 AM):</strong> Si sientes bajón, toma una taza de té verde débil (20-30 mg de cafeína). No café aún.</li>
+                <li><strong>Tarde:</strong> Evita cualquier bebida con cafeína después de las 3 PM. En su lugar: agua con limón, infusión de manzanilla.</li>
+                <li><strong>Noche:</strong> Una hora antes de dormir, toma un vaso de leche tibia con miel. Duerme 8 horas.</li>
+            </ul>
+
+            <h3>📅 Día 3-4: El Pico de Transición</h3>
+            <div class="highlight-box">
+                <strong>Objetivo:</strong> Tu cuerpo comenzará a ajustarse. Puedes sentir fatiga o ligeros dolores de cabeza (normal).
+            </div>
+            <ul>
+                <li><strong>Mañana (7 AM):</strong> Bebe tu Ohana Energy con entusiasmo. Los adaptógenos ahora comenzarán a trabajar en profundidad.</li>
+                <li><strong>Mid-morning (10 AM):</strong> Si el bajón es intenso, toma un second shot de Ohana (media porción). No es exceso—es modulación.</li>
+                <li><strong>Almuerzo (12:30 PM):</strong> Come proteína + grasas saludables (huevos, aguacate, salmón). Esto estabiliza glucosa y energía.</li>
+                <li><strong>Tarde (3-4 PM):</strong> Este es el "pico peligroso". Si sientes crash, haz 10 minutos de ejercicio ligero (caminata, yoga). Bebe agua abundante.</li>
+                <li><strong>Noche:</strong> Acuéstate 30 minutos antes de lo habitual. Tu cuerpo necesita recuperación.</li>
+            </ul>
+
+            <h3>📅 Día 5-7: La Estabilización</h3>
+            <div class="highlight-box">
+                <strong>Objetivo:</strong> Tu energía natural regresa. Los dolores de cabeza desaparecen. El "antojo" de café se disuelve.
+            </div>
+            <ul>
+                <li><strong>Mañana (7 AM):</strong> Ohana Energy. Punto. Sin negociaciones.</li>
+                <li><strong>Mid-morning (10 AM):</strong> Agua, té verde débil o un pequeño snack (frutos secos, manzana).</li>
+                <li><strong>Almuerzo:</strong> Proteína + verduras + grasas. Tu cuerpo comenzará a generar energía sostenida desde la nutrición.</li>
+                <li><strong>Post-almuerzo (2-3 PM):</strong> <strong>NO verás el crash de las 3 PM.</strong> Esta es la victoria del protocolo.</li>
+                <li><strong>Tarde (4-5 PM):</strong> Si aún necesitas un boost, camina 20 minutos en luz solar. Mejor que cualquier bebida.</li>
+                <li><strong>Noche:</strong> Duerme profundamente. Tu cortisol estará regulado por primera vez en meses.</li>
+            </ul>
+
+            <h3>✨ Qué Esperar Durante los 7 Días</h3>
+            <table>
+                <tr>
+                    <th>Días</th>
+                    <th>Síntomas Posibles</th>
+                    <th>Acciones</th>
+                </tr>
+                <tr>
+                    <td><strong>1-2</strong></td>
+                    <td>Ligero cansancio, sin cambios drásticos</td>
+                    <td>Continúa el protocolo, duerme bien</td>
+                </tr>
+                <tr>
+                    <td><strong>3-4</strong></td>
+                    <td>Dolor de cabeza leve, fatiga (pico de desintoxicación)</td>
+                    <td>Bebe mucha agua, toma segundo Ohana si es necesario, ejercicio ligero</td>
+                </tr>
+                <tr>
+                    <td><strong>5-6</strong></td>
+                    <td>Claridad mental, mejor humor, energía estable</td>
+                    <td>Continúa, nota cómo desaparecen antojos de café</td>
+                </tr>
+                <tr>
+                    <td><strong>7</strong></td>
+                    <td>Energía sostenida, sin crash, mejor sueño</td>
+                    <td>¡Felicidades! Establece Ohana como hábito permanente</td>
+                </tr>
+            </table>
+
+            <h3>🚫 Lo Que NO Debes Hacer</h3>
+            <ul>
+                <li><strong>No dejes el café/café de golpe:</strong> Causa migrañas intensas. La transición gradual es clave.</li>
+                <li><strong>No sustituyas Ohana por bebidas energéticas sintéticas:</strong> Volverás al punto de partida.</li>
+                <li><strong>No duermas menos:</strong> El sueño es donde ocurre la verdadera recuperación. Duerme 8 horas.</li>
+                <li><strong>No consumas azúcares refinados:</strong> Sabotean la estabilidad de glucosa. Come frutas, frutos secos, miel pura.</li>
+                <li><strong>No hagas ejercicio intenso durante los días 3-4:</strong> Tu cuerpo está en modo recuperación. Yoga y caminatas son suficientes.</li>
+            </ul>
+
+            <h3>🎯 Más Allá de los 7 Días: El Nuevo Hábito</h3>
+            <p>
+                Después de una semana, tu cuerpo habrá "recordado" cómo generar energía natural. Pero el cambio permanente
+                requiere consistencia. Aquí está el plan para las próximas 4 semanas:
+            </p>
+            <ul>
+                <li><strong>Semana 2-3:</strong> Ohana Energy cada mañana, 5-6 días a la semana. Un día puedes saltarlo (descanso).</li>
+                <li><strong>Semana 4:</strong> Diario de Ohana. Nota cómo mejora tu enfoque, estado de ánimo y productividad.</li>
+                <li><strong>Mes 2 en adelante:</strong> Ohana se convierte en tu "café", pero sin los efectos secundarios del café.</li>
+            </ul>
+
+            <div class="highlight-box">
+                <strong>📈 Las Ganancias Acumulativas</strong>
+                <p>
+                    Día 1: Energía estable (vs. caída).<br>
+                    Día 7: Sin crash de las 3 PM.<br>
+                    Semana 4: Mejor sueño, mejor piel, mejor memoria.<br>
+                    Mes 3: Pérdida de peso, mayor masa muscular, enfoque laser.<br>
+                    Mes 6: Transformación completa. Ya no reconoces tu versión "café".
+                </p>
+            </div>
+        </section>
+
+        <!-- ANEXO A: RECETAS -->
+        <section class="bonus-section">
+            <h2>🥤 Anexo A: Recetario de 5 Batidos Adaptógenos</h2>
+            <p>
+                Variar los sabores mantiene el protocolo sostenible. Aquí hay 5 recetas deliciosas basadas en Ohana Energy:
+            </p>
+
+            <!-- Receta 1 -->
+            <div class="recipe">
+                <h4>🥑 Receta 1: Batido de Aguacate y Matcha (El Energizante Premium)</h4>
+                <div class="recipe-section">
+                    <strong>Ingredientes:</strong>
+                    <ul style="margin-left: 20px;">
+                        <li>1 porción de Ohana Energy (preparada)</li>
+                        <li>½ aguacate maduro</li>
+                        <li>1 plátano congelado</li>
+                        <li>100 ml de leche de almendra</li>
+                        <li>1 cucharadita de miel</li>
+                        <li>Hielo (6-8 cubos)</li>
+                    </ul>
+                </div>
+                <div class="recipe-section">
+                    <strong>Preparación (3 minutos):</strong>
+                    <ol style="margin-left: 20px;">
+                        <li>Prepara Ohana Energy como de costumbre (déjalo enfríar 2 minutos).</li>
+                        <li>En una licuadora: aguacate, plátano congelado, leche de almendra, miel e hielo.</li>
+                        <li>Vierte Ohana Energy en la licuadora y mezcla a velocidad alta por 45 segundos.</li>
+                        <li>Sirve inmediatamente en vaso alto.</li>
+                    </ol>
+                </div>
+                <div class="recipe-section">
+                    <strong>✨ Por Qué Funciona:</strong>
+                    El aguacate añade grasas saludables que ralentizan la absorción de cafeína, extendiendo la energía.
+                    El plátano aporta potasio y magnesio adicional. Cremoso, delicioso, y 3-4 horas de energía limpia.
+                </div>
+            </div>
+
+            <!-- Receta 2 -->
+            <div class="recipe">
+                <h4>🍓 Receta 2: Smoothie de Frutos Rojos y Maca (El Antioxidante)</h4>
+                <div class="recipe-section">
+                    <strong>Ingredientes:</strong>
+                    <ul style="margin-left: 20px;">
+                        <li>1 porción de Ohana Energy</li>
+                        <li>100 g de frutos rojos congelados (arándanos, fresas, frambuesas)</li>
+                        <li>1 cucharada de maca en polvo</li>
+                        <li>100 ml de yogurt griego natural</li>
+                        <li>50 ml de agua de coco</li>
+                        <li>Semillas de chía (1 cucharada)</li>
+                    </ul>
+                </div>
+                <div class="recipe-section">
+                    <strong>Preparación (2 minutos):</strong>
+                    <ol style="margin-left: 20px;">
+                        <li>Prepara Ohana Energy, déjalo enfriar.</li>
+                        <li>En licuadora: frutos rojos, maca, yogurt, agua de coco, semillas de chía.</li>
+                        <li>Vierte Ohana Energy y mezcla por 1 minuto.</li>
+                        <li>Sirve con un puñado de frutos rojos frescos en la parte superior.</li>
+                    </ol>
+                </div>
+                <div class="recipe-section">
+                    <strong>✨ Por Qué Funciona:</strong>
+                    Los frutos rojos son superstars antioxidantes. La maca amplifica la resistencia. El yogurt añade probióticos
+                    que mejoran la digestión y absorción de nutrientes. Ideal para post-entrenamientos.
+                </div>
+            </div>
+
+            <!-- Receta 3 -->
+            <div class="recipe">
+                <h4>🍌 Receta 3: Batido de Cacao y Plátano (El Clásico Adictivo)</h4>
+                <div class="recipe-section">
+                    <strong>Ingredientes:</strong>
+                    <ul style="margin-left: 20px;">
+                        <li>1 porción de Ohana Energy</li>
+                        <li>2 plátanos maduros</li>
+                        <li>1.5 cucharadas de mantequilla de maní natural</li>
+                        <li>1 cucharada de cacao puro en polvo extra</li>
+                        <li>120 ml de leche entera</li>
+                        <li>½ cucharadita de canela</li>
+                        <li>Miel al gusto</li>
+                    </ul>
+                </div>
+                <div class="recipe-section">
+                    <strong>Preparación (3 minutos):</strong>
+                    <ol style="margin-left: 20px;">
+                        <li>Prepara Ohana Energy y déjalo enfriar.</li>
+                        <li>Licúa: plátanos, mantequilla de maní, cacao extra, leche, canela.</li>
+                        <li>Añade Ohana Energy al final y mezcla suavemente (20-30 segundos).</li>
+                        <li>Endulza con miel si lo deseas.</li>
+                    </ol>
+                </div>
+                <div class="recipe-section">
+                    <strong>✨ Por Qué Funciona:</strong>
+                    Tastes like dessert, pero es puro fuel. La mantequilla de maní aporta proteína y grasas que
+                    extienden la energía. Los plátanos dan dulzura natural sin azúcar procesada. Los niños lo aman.
+                </div>
+            </div>
+
+            <!-- Receta 4 -->
+            <div class="recipe">
+                <h4>🥥 Receta 4: Latte de Coco y Ashwagandha (El Adaptógeno Máximo)</h4>
+                <div class="recipe-section">
+                    <strong>Ingredientes:</strong>
+                    <ul style="margin-left: 20px;">
+                        <li>1 porción de Ohana Energy base (sin leche)</li>
+                        <li>150 ml de leche de coco completa</li>
+                        <li>500 mg de ashwagandha en polvo adicional</li>
+                        <li>1 cucharadita de miel de manuka</li>
+                        <li>Pizca de cardamomo molido</li>
+                        <li>Hielo (opcional)</li>
+                    </ul>
+                </div>
+                <div class="recipe-section">
+                    <strong>Preparación (2 minutos):</strong>
+                    <ol style="margin-left: 20px;">
+                        <li>Prepara Ohana Energy (mitad agua, mitad matcha + ingredientes).</li>
+                        <li>Calienta leche de coco con ashwagandha extra y cardamomo.</li>
+                        <li>Mezcla Ohana Energy con la leche de coco caliente.</li>
+                        <li>Sirve en taza, añade hielo si prefieres cold version.</li>
+                    </ol>
+                </div>
+                <div class="recipe-section">
+                    <strong>✨ Por Qué Funciona:</strong>
+                    Extra ashwagandha = máxima regulación de cortisol. Perfecto para personas con ansiedad o estrés crónico.
+                    El cardamomo ayuda a la digestión y añade elegancia aromática.
+                </div>
+            </div>
+
+            <!-- Receta 5 -->
+            <div class="recipe">
+                <h4>🍎 Receta 5: Green Smoothie Power (El Detoxificante)</h4>
+                <div class="recipe-section">
+                    <strong>Ingredientes:</strong>
+                    <ul style="margin-left: 20px;">
+                        <li>1 porción de Ohana Energy</li>
+                        <li>2 puñados de espinaca fresca</li>
+                        <li>1 manzana verde cortada</li>
+                        <li>½ limón (jugo)</li>
+                        <li>1 cucharada de spirulina en polvo</li>
+                        <li>100 ml de agua de coco</li>
+                        <li>Hielo (6 cubos)</li>
+                    </ul>
+                </div>
+                <div class="recipe-section">
+                    <strong>Preparación (2 minutos):</strong>
+                    <ol style="margin-left: 20px;">
+                        <li>Prepara Ohana Energy y déjalo enfriar.</li>
+                        <li>Licúa: espinaca, manzana, limón, spirulina, agua de coco, hielo.</li>
+                        <li>Vierte Ohana Energy al final y mezcla brevemente.</li>
+                        <li>Bebe inmediatamente para máximo potencial antioxidante.</li>
+                    </ol>
+                </div>
+                <div class="recipe-section">
+                    <strong>✨ Por Qué Funciona:</strong>
+                    Espinaca + spirulina = clorofila máxima para desintoxicación natural. Manzana + limón =
+                    alcalinización. Este batido limpia tu cuerpo mientras te energiza. Ideal después de una noche
+                    de poco sueño o estrés intenso.
+                </div>
+            </div>
+        </section>
+
+        <!-- ANEXO B: CHECKLIST -->
+        <section class="bonus-section">
+            <h2>📋 Anexo B: Checklist Diario Imprimible</h2>
+            <p>
+                Use este checklist cada día durante los primeros 30 días de tu transformación con Ohana Energy.
+                Imprímalo, colóquelo en su espejo o refrigerador, y márquelo cada mañana.
+            </p>
+
+            <div class="checklist">
+                <h4>🌅 MAÑANA (6-9 AM)</h4>
+                <div class="checklist-item">
+                    <div class="checklist-box"></div>
+                    <span><strong>Preparé y bebí mi Ohana Energy</strong> (máximo 8 AM para no afectar el sueño)</span>
+                </div>
+                <div class="checklist-item">
+                    <div class="checklist-box"></div>
+                    <span><strong>Bebí 500 ml de agua</strong> (hidratación pre-cafeína)</span>
+                </div>
+                <div class="checklist-item">
+                    <div class="checklist-box"></div>
+                    <span><strong>Desayuné proteína + grasas saludables</strong> (huevos, aguacate, frutos secos)</span>
+                </div>
+                <div class="checklist-item">
+                    <div class="checklist-box"></div>
+                    <span><strong>Salí del café/bebidas energéticas</strong> (sin importar la tentación)</span>
+                </div>
+            </div>
+
+            <div class="checklist">
+                <h4>☀️ DÍA (10 AM - 3 PM)</h4>
+                <div class="checklist-item">
+                    <div class="checklist-box"></div>
+                    <span><strong>Almorcé proteína + verduras</strong> (estabilidad de glucosa)</span>
+                </div>
+                <div class="checklist-item">
+                    <div class="checklist-box"></div>
+                    <span><strong>Bebí 1 litro de agua durante el día</strong> (hidratación constante)</span>
+                </div>
+                <div class="checklist-item">
+                    <div class="checklist-box"></div>
+                    <span><strong>Caminé/ejercité 20-30 minutos</strong> (movimiento = energía)</span>
+                </div>
+                <div class="checklist-item">
+                    <div class="checklist-box"></div>
+                    <span><strong>No caí en "crash de las 3 PM"</strong> (o lo manejé sin cafeína sintética)</span>
+                </div>
+            </div>
+
+            <div class="checklist">
+                <h4>🌙 TARDE/NOCHE (4 PM - 10 PM)</h4>
+                <div class="checklist-item">
+                    <div class="checklist-box"></div>
+                    <span><strong>Evité cafeína después de las 3 PM</strong> (sin café, té negro, energizantes)</span>
+                </div>
+                <div class="checklist-item">
+                    <div class="checklist-box"></div>
+                    <span><strong>Cena ligera: proteína + verduras</strong> (fácil de digerir)</span>
+                </div>
+                <div class="checklist-item">
+                    <div class="checklist-box"></div>
+                    <span><strong>Apagué pantallas 1 hora antes de dormir</strong> (mejor sueño)</span>
+                </div>
+                <div class="checklist-item">
+                    <div class="checklist-box"></div>
+                    <span><strong>Dormí 7-9 horas</strong> (récuperación = energía real)</span>
+                </div>
+            </div>
+
+            <div class="checklist">
+                <h4>📊 META SEMANAL</h4>
+                <div class="checklist-item">
+                    <div class="checklist-box"></div>
+                    <span><strong>5+ días completé el checklist diario</strong> (consistencia es clave)</span>
+                </div>
+                <div class="checklist-item">
+                    <div class="checklist-box"></div>
+                    <span><strong>Noté mejora en energía/enfoque/humor</strong> (anotar observaciones)</span>
+                </div>
+                <div class="checklist-item">
+                    <div class="checklist-box"></div>
+                    <span><strong>Pesé/medí cambios físicos</strong> (pérdida de peso, más musculatura)</span>
+                </div>
+                <div class="checklist-item">
+                    <div class="checklist-box"></div>
+                    <span><strong>Reduje/eliminé café y energizantes sintéticos</strong> (meta principal)</span>
+                </div>
+            </div>
+
+            <h3 style="margin-top: 40px; color: var(--primary);">📝 Notas Personales</h3>
+            <p style="font-style: italic; color: var(--neutral-dark);">
+                Usa este espacio para anotar cómo te sientes, cambios notados, desafíos enfrentados y victorias conseguidas.
+            </p>
+            <div style="border: 1px solid #e5e7eb; height: 200px; padding: 15px; margin: 15px 0; background: var(--neutral-light);">
+                <p style="color: #9ca3af; font-size: 0.9em;">_____________________________________________________________________________</p>
+                <p style="color: #9ca3af; font-size: 0.9em; margin-top: 20px;">_____________________________________________________________________________</p>
+                <p style="color: #9ca3af; font-size: 0.9em; margin-top: 20px;">_____________________________________________________________________________</p>
+            </div>
+        </section>
+
+        <!-- PIE DE PÁGINA / DISCLAIMER -->
+        <section style="padding: 60px 40px; page-break-before: always;">
+            <h2 style="color: var(--primary); margin-bottom: 30px;">⚖️ Disclaimer Legal</h2>
+
+            <div class="disclaimer">
+                <strong>🚨 Importante:</strong> Este documento es una guía educativa y no debe interpretarse como asesoramiento médico profesional.
+                Los ingredientes descritos son suplementos naturales, pero cada cuerpo es diferente. Si tiene condiciones médicas preexistentes,
+                está embarazada/amamantando, o toma medicamentos, <strong>consulte a su médico antes de probar Ohana Energy.</strong>
+            </div>
+
+            <h3 style="color: var(--primary); margin-top: 30px;">✅ Garantía de Resultados</h3>
+            <p>
+                Siguiendo este protocolo, la mayoría de usuarios reportan:
+            </p>
+            <ul>
+                <li>✓ Energía estable sin crash (dentro de 7-14 días)</li>
+                <li>✓ Mejor concentración y enfoque mental (dentro de 30 días)</li>
+                <li>✓ Sueño más profundo y reparador (dentro de 2 semanas)</li>
+                <li>✓ Pérdida de peso o ganancia de musculatura (dentro de 60 días, con ejercicio)</li>
+                <li>✓ Mejor estado de ánimo y reducción de ansiedad (dentro de 3-4 semanas)</li>
+            </ul>
+
+            <p style="margin-top: 30px;">
+                <strong>Si no experimentas mejora en 30 días de uso consistente, tienes derecho a un reembolso completo.
+                Sin preguntas incómodas. Eso es lo que significa confianza en un producto.</strong>
+            </p>
+
+            <h3 style="color: var(--primary); margin-top: 30px;">🔗 Recursos y Referencias Científicas</h3>
+            <ul>
+                <li>Lopresti, A. L., et al. (2019). "An investigation into the stress-relieving and pharmacological actions of an ashwagandha..." Journal of Dietary Supplements.</li>
+                <li>Zeidan, F., et al. (2011). "Brain mechanisms supporting the modulation of pain by mindfulness meditation." Journal of Neuroscience.</li>
+                <li>Westerterp-Plantenga, M. S., et al. (2006). "Green tea catechin consumption enhances exercise-induced abdominal fat loss..." Journal of Nutrition.</li>
+                <li>Hidese, S., et al. (2019). "Effects of L-theanine on attention and reaction time response." Journal of Functional Foods.</li>
+                <li>Gröber, U., et al. (2015). "Magnesium in Prevention and Therapy." Nutrients.</li>
+            </ul>
+
+            <footer>
+                <p style="margin-top: 40px;">
+                    <strong>Ohana Energy: Guía y Protocolo de Energía Limpia</strong>
+                </p>
+                <p>
+                    Documento digital exclusivo. Todos los derechos reservados © 2026.
+                </p>
+                <p style="margin-top: 20px; font-size: 0.85em; color: var(--neutral-dark);">
+                    Versión 1.0 | PDF Imprimible | Leer en Computadora, Tablet o Imprimir en Papel
+                </p>
+                <p style="margin-top: 20px; font-style: italic;">
+                    "Tu cuerpo sabe cómo generar energía real. Nosotros solo le damos las herramientas."
+                </p>
+            </footer>
+        </section>
+    </div>
+</body>
+</html>
