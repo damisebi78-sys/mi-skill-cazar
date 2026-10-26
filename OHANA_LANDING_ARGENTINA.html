@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ohana Energy - La Fórmula Secreta | Argentina</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+
+        .gradient-hero { background: linear-gradient(135deg, #ffffff 0%, #f8fffe 50%, #f0fdf4 100%); }
+        .gradient-cta { background: linear-gradient(135deg, #10B981 0%, #059669 100%); }
+        .card-hover { transition: all 0.3s ease; }
+        .card-hover:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(16, 185, 129, 0.15); }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3);
+        }
+
+        .section-spacing { padding: 80px 20px; }
+        .max-w-wrapper { max-width: 1100px; margin: 0 auto; }
+
+        .problem-item {
+            background: white;
+            border: 1px solid #e5e7eb;
+            transition: all 0.3s ease;
+        }
+        .problem-item:hover {
+            border-color: #10B981;
+            box-shadow: 0 10px 30px rgba(16, 185, 129, 0.08);
+        }
+
+        h1 { font-size: 3.5rem; font-weight: 800; letter-spacing: -1px; line-height: 1.1; }
+        h2 { font-size: 2.5rem; font-weight: 700; letter-spacing: -0.5px; line-height: 1.2; }
+        h3 { font-size: 1.3rem; font-weight: 600; }
+
+        .badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #F59E0B 0%, #DC2626 100%);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        .comparison-table {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #e5e7eb;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            h2 { font-size: 1.8rem; }
+            .section-spacing { padding: 50px 20px; }
+        }
+    </style>
+</head>
+<body class="bg-white">
+
+    <!-- NAVBAR -->
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-gray-100">
+        <nav class="max-w-wrapper mx-auto px-6 py-4 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-gradient-to-br from-green-500 to-green-600 rounded-lg flex items-center justify-center text-white font-bold text-lg">O</div>
+                <span class="font-bold text-xl text-gray-900">Ohana</span>
+            </div>
+            <a href="#cta" class="btn-primary text-white px-6 py-2.5 rounded-lg text-sm font-semibold">
+                Quiero La Fórmula
+            </a>
+        </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="gradient-hero py-20 md:py-32">
+        <div class="max-w-wrapper mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <!-- Contenido -->
+                <div>
+                    <div class="mb-8">
+                        <span class="badge">🔒 LA FÓRMULA SECRETA</span>
+                    </div>
+
+                    <h1 class="text-gray-900 mb-6">
+                        ¿Cansado de vivir enchufado al café?
+                    </h1>
+
+                    <p class="text-2xl text-gray-700 font-light mb-8 leading-relaxed">
+                        Tu energía no tiene que colapsar a las 3 PM
+                    </p>
+
+                    <div class="bg-blue-50 border-l-4 border-blue-500 p-6 rounded-lg mb-8">
+                        <p class="text-gray-800 mb-2">
+                            <strong>Descubre:</strong> Cómo hacer en 5 minutos lo que Starbucks vende por $500.
+                        </p>
+                        <p class="text-gray-700 text-sm">
+                            Ingredientes que conseguís en cualquier dietética. Fórmula que solo sabrás hacer vos.
+                        </p>
+                    </div>
+
+                    <div class="space-y-4">
+                        <div class="flex gap-3 items-start">
+                            <span class="text-2xl">✓</span>
+                            <p class="text-gray-700"><strong>Energía real</strong> por 8+ horas sin crash</p>
+                        </div>
+                        <div class="flex gap-3 items-start">
+                            <span class="text-2xl">✓</span>
+                            <p class="text-gray-700"><strong>Ingredientes accesibles</strong> ($233/día vs $500+ café)</p>
+                        </div>
+                        <div class="flex gap-3 items-start">
+                            <span class="text-2xl">✓</span>
+                            <p class="text-gray-700"><strong>Protocolo nutricional</strong> de 30 días incluido</p>
+                        </div>
+                        <div class="flex gap-3 items-start">
+                            <span class="text-2xl">✓</span>
+                            <p class="text-gray-700"><strong>Garantía 30 días</strong> o devolvemos tu dinero</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Visual -->
+                <div class="flex justify-center">
+                    <div class="w-full h-96 bg-gradient-to-br from-green-100 to-emerald-100 rounded-2xl flex items-center justify-center shadow-2xl border border-green-200">
+                        <div class="text-center">
+                            <div class="text-7xl mb-4">🌿</div>
+                            <p class="text-gray-700 font-semibold text-lg">La Fórmula Secreta</p>
+                            <p class="text-sm text-gray-500 mt-2">Imagen visual aquí</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA PRINCIPAL -->
+    <section id="cta" class="gradient-cta py-20">
+        <div class="max-w-2xl mx-auto px-6 text-center">
+            <h2 class="text-white text-3xl md:text-4xl font-bold mb-4">
+                Obtén La Fórmula Hoy
+            </h2>
+            <p class="text-green-50 text-lg mb-12">
+                Descubre cómo hacer energía real en 5 minutos
+            </p>
+
+            <div class="bg-white rounded-2xl p-8 shadow-2xl max-w-md mx-auto">
+                <div class="inline-block bg-red-100 text-red-700 px-4 py-2 rounded-full text-sm font-bold mb-6">
+                    ⏰ OFERTA POR 24HS
+                </div>
+
+                <div class="text-center mb-8">
+                    <p class="text-gray-600 text-sm mb-2">Precio normal:</p>
+                    <p class="text-3xl font-bold text-gray-400 line-through">$15.000</p>
+                    <p class="text-gray-600 text-sm mb-2 mt-4">Tu precio HOY:</p>
+                    <p class="text-5xl font-bold text-green-600">$9.000</p>
+                    <p class="text-sm text-gray-600 mt-3">Acceso inmediato + Protocolo nutricional</p>
+                </div>
+
+                <form class="space-y-4" onsubmit="handleSubmit(event)">
+                    <input
+                        type="email"
+                        placeholder="Tu email"
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-green-500 focus:ring-2 focus:ring-green-100 text-gray-900"
+                        required
+                    >
+                    <button
+                        type="submit"
+                        class="btn-primary w-full text-white font-bold py-4 rounded-lg text-lg uppercase tracking-wide hover:shadow-lg"
+                    >
+                        Sí, Quiero La Fórmula ($9.000)
+                    </button>
+                </form>
+
+                <div class="mt-6 space-y-3 text-left">
+                    <div class="flex gap-2 items-start text-sm text-gray-700">
+                        <span class="text-green-600 font-bold">✓</span>
+                        <p>Acceso inmediato al PDF descargable</p>
+                    </div>
+                    <div class="flex gap-2 items-start text-sm text-gray-700">
+                        <span class="text-green-600 font-bold">✓</span>
+                        <p>Protocolo de nutrición de 30 días</p>
+                    </div>
+                    <div class="flex gap-2 items-start text-sm text-gray-700">
+                        <span class="text-green-600 font-bold">✓</span>
+                        <p>Garantía: si no funciona, devolvemos tu dinero</p>
+                    </div>
+                    <div class="flex gap-2 items-start text-sm text-gray-700">
+                        <span class="text-green-600 font-bold">✓</span>
+                        <p>Acceso a grupo privado de soporte</p>
+                    </div>
+                </div>
+            </div>
+
+            <p class="text-green-100 text-sm mt-8">
+                <strong>P.S.</strong> La oferta de $9.000 termina en 24hs. Después vuelve a $15.000.
+            </p>
+        </div>
+    </section>
+
+    <!-- PROBLEMAS -->
+    <section class="section-spacing bg-gray-50">
+        <div class="max-w-wrapper mx-auto px-6">
+            <h2 class="text-center text-gray-900 mb-16">¿Por qué pasas esto todos los días?</h2>
+
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="problem-item p-6 rounded-xl">
+                    <div class="text-4xl mb-4">❌</div>
+                    <h3 class="text-gray-900 mb-3">El crash de las 3 PM</h3>
+                    <p class="text-gray-600">Trabajás 8 horas pero a las 3 PM te caés de cansancio sin poder hacer nada más</p>
+                </div>
+
+                <div class="problem-item p-6 rounded-xl">
+                    <div class="text-4xl mb-4">❌</div>
+                    <h3 class="text-gray-900 mb-3">El café no funciona</h3>
+                    <p class="text-gray-600">2 horas de energía falsa + 6 horas de crash brutal + adicción garantizada</p>
+                </div>
+
+                <div class="problem-item p-6 rounded-xl">
+                    <div class="text-4xl mb-4">❌</div>
+                    <h3 class="text-gray-900 mb-3">Ciclo adictivo</h3>
+                    <p class="text-gray-600">Necesitás café para funcionar, pero el café destruye tu sueño (círculo vicioso)</p>
+                </div>
+
+                <div class="problem-item p-6 rounded-xl">
+                    <div class="text-4xl mb-4">❌</div>
+                    <h3 class="text-gray-900 mb-3">Bebidas energéticas caras</h3>
+                    <p class="text-gray-600">$500+ por una bebida que funciona PEOR que el café + efectos secundarios</p>
+                </div>
+            </div>
+
+            <div class="bg-yellow-50 border-l-4 border-yellow-500 p-8 rounded-lg mt-12">
+                <p class="text-gray-800 font-semibold mb-3">
+                    La verdad incómoda:
+                </p>
+                <p class="text-gray-700">
+                    La industria del café invierte millones en ocultarte que existe una FÓRMULA MEJOR. Una que ellos no quieren que descubras. Porque si la supieras, dejarías de gastar $500/mes en café que no funciona.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOLUCIÓN -->
+    <section class="section-spacing">
+        <div class="max-w-wrapper mx-auto px-6">
+            <h2 class="text-center text-gray-900 mb-16">La Fórmula Secreta<br>(Finalmente Revelada)</h2>
+
+            <div class="bg-white border border-gray-200 rounded-2xl p-8 shadow-lg mb-12">
+                <h3 class="text-green-600 text-2xl font-bold mb-8">¿Qué incluye tu acceso?</h3>
+
+                <div class="feature-grid mb-8">
+                    <div class="p-6 bg-gradient-to-br from-green-50 to-transparent rounded-xl border border-green-100">
+                        <p class="text-2xl mb-3">📋</p>
+                        <p class="font-bold text-gray-900 mb-2">La Fórmula Exacta</p>
+                        <p class="text-gray-600 text-sm">Ingredientes específicos, dosis precisas, timing perfecto, dónde comprar</p>
+                    </div>
+
+                    <div class="p-6 bg-gradient-to-br from-blue-50 to-transparent rounded-xl border border-blue-100">
+                        <p class="text-2xl mb-3">🍽️</p>
+                        <p class="font-bold text-gray-900 mb-2">Protocolo Nutricional</p>
+                        <p class="text-gray-600 text-sm">Qué comer, qué evitar, timing de comidas para máxima energía</p>
+                    </div>
+
+                    <div class="p-6 bg-gradient-to-br from-purple-50 to-transparent rounded-xl border border-purple-100">
+                        <p class="text-2xl mb-3">📱</p>
+                        <p class="font-bold text-gray-900 mb-2">Guía de 30 Días</p>
+                        <p class="text-gray-600 text-sm">Protocolo día a día para transformar tu energía</p>
+                    </div>
+
+                    <div class="p-6 bg-gradient-to-br from-orange-50 to-transparent rounded-xl border border-orange-100">
+                        <p class="text-2xl mb-3">👥</p>
+                        <p class="font-bold text-gray-900 mb-2">Grupo Privado</p>
+                        <p class="text-gray-600 text-sm">Comunidad de argentinos que ya descubrieron la fórmula</p>
+                    </div>
+                </div>
+
+                <div class="bg-blue-50 border-l-4 border-blue-500 p-6 rounded-lg">
+                    <h4 class="font-bold text-gray-900 mb-4">El costo real (siendo honesto):</h4>
+                    <div class="space-y-3 mb-4">
+                        <p class="text-gray-700"><span class="font-semibold">Acceso a la fórmula:</span> $9.000 ARS (hoy)</p>
+                        <p class="text-gray-700"><span class="font-semibold">Ingredientes para 30 días:</span> $8.000-10.000 ARS</p>
+                        <p class="text-gray-700 text-lg font-bold text-green-600 mt-4">Total: ~$18.000 ARS para 30 días de energía REAL</p>
+                    </div>
+                    <p class="text-gray-600 text-sm">
+                        <strong>Comparación:</strong> 1 mes de café = $5.000 ARS. 1 mes de bebidas energéticas = $20.000+ ARS.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- COMPARATIVA -->
+    <section class="section-spacing bg-gray-50">
+        <div class="max-w-wrapper mx-auto px-6">
+            <h2 class="text-center text-gray-900 mb-16">¿Por qué la fórmula funciona mejor?</h2>
+
+            <div class="overflow-x-auto">
+                <div class="comparison-table">
+                    <table class="w-full">
+                        <thead>
+                            <tr class="bg-gradient-to-r from-green-500 to-green-600 text-white">
+                                <th class="text-left py-4 px-6 font-bold">Característica</th>
+                                <th class="text-center py-4 px-6 font-bold">Café</th>
+                                <th class="text-center py-4 px-6 font-bold">Bebidas energéticas</th>
+                                <th class="text-center py-4 px-6 font-bold">La Fórmula</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b">
+                                <td class="py-4 px-6 font-semibold text-gray-900">Energía dura</td>
+                                <td class="text-center text-gray-700">2-3 hs</td>
+                                <td class="text-center text-gray-700">4-5 hs</td>
+                                <td class="text-center text-green-600 font-bold">8+ hs</td>
+                            </tr>
+                            <tr class="bg-gray-50 border-b">
+                                <td class="py-4 px-6 font-semibold text-gray-900">Crash</td>
+                                <td class="text-center text-red-600 font-semibold">Brutal</td>
+                                <td class="text-center text-red-600 font-semibold">Total</td>
+                                <td class="text-center text-green-600 font-bold">Sin crash</td>
+                            </tr>
+                            <tr class="border-b">
+                                <td class="py-4 px-6 font-semibold text-gray-900">Ansiedad</td>
+                                <td class="text-center text-gray-700">Alto</td>
+                                <td class="text-center text-gray-700">Muy alto</td>
+                                <td class="text-center text-green-600 font-bold">Nulo</td>
+                            </tr>
+                            <tr class="bg-gray-50 border-b">
+                                <td class="py-4 px-6 font-semibold text-gray-900">Sueño</td>
+                                <td class="text-center text-red-600">Insomnio</td>
+                                <td class="text-center text-red-600">Insomnio</td>
+                                <td class="text-center text-green-600 font-bold">Profundo</td>
+                            </tr>
+                            <tr>
+                                <td class="py-4 px-6 font-semibold text-gray-900">Precio/mes</td>
+                                <td class="text-center text-gray-700">$5.000+</td>
+                                <td class="text-center text-gray-700">$20.000+</td>
+                                <td class="text-center text-green-600 font-bold">$18.000</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section-spacing">
+        <div class="max-w-3xl mx-auto px-6">
+            <h2 class="text-center text-gray-900 mb-16">Preguntas Frecuentes</h2>
+
+            <div class="space-y-4">
+                <details class="group bg-white border border-gray-200 rounded-lg p-6 cursor-pointer hover:border-green-300 transition">
+                    <summary class="font-semibold text-gray-900 flex justify-between items-center">
+                        ¿Qué ingredientes necesito?
+                        <span class="text-green-600 font-bold group-open:rotate-180 transition">+</span>
+                    </summary>
+                    <p class="text-gray-600 mt-4 text-sm leading-relaxed">
+                        Té verde, Complejo B, Magnesio, miel y limón. Todos accesibles en farmacia o dietética. La fórmula exacta está en el PDF con timing perfecto y opciones de sustitutos.
+                    </p>
+                </details>
+
+                <details class="group bg-white border border-gray-200 rounded-lg p-6 cursor-pointer hover:border-green-300 transition">
+                    <summary class="font-semibold text-gray-900 flex justify-between items-center">
+                        ¿Cuándo siento los cambios?
+                        <span class="text-green-600 font-bold group-open:rotate-180 transition">+</span>
+                    </summary>
+                    <p class="text-gray-600 mt-4 text-sm leading-relaxed">
+                        Primeros cambios en 24-48 horas. Energía sostenida en 7 días. Transformación completa en 30 días con el protocolo nutricional.
+                    </p>
+                </details>
+
+                <details class="group bg-white border border-gray-200 rounded-lg p-6 cursor-pointer hover:border-green-300 transition">
+                    <summary class="font-semibold text-gray-900 flex justify-between items-center">
+                        ¿Es seguro?
+                        <span class="text-green-600 font-bold group-open:rotate-180 transition">+</span>
+                    </summary>
+                    <p class="text-gray-600 mt-4 text-sm leading-relaxed">
+                        100% seguro. Ingredientes naturales sin efectos secundarios. Si tienes dudas médicas, consulta a tu médico (recomendación estándar).
+                    </p>
+                </details>
+
+                <details class="group bg-white border border-gray-200 rounded-lg p-6 cursor-pointer hover:border-green-300 transition">
+                    <summary class="font-semibold text-gray-900 flex justify-between items-center">
+                        ¿Qué pasa si no me funciona?
+                        <span class="text-green-600 font-bold group-open:rotate-180 transition">+</span>
+                    </summary>
+                    <p class="text-gray-600 mt-4 text-sm leading-relaxed">
+                        Garantía 30 días. Si no ves cambios, te devolvemos los $9.000 sin preguntas. Cero riesgo para vos.
+                    </p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section class="gradient-cta py-20">
+        <div class="max-w-2xl mx-auto px-6 text-center">
+            <h2 class="text-white text-4xl md:text-5xl font-bold mb-6">
+                Obtén La Fórmula Hoy
+            </h2>
+            <p class="text-green-100 text-xl mb-8">
+                $9.000 ARS. Acceso inmediato. Cambio garantizado.
+            </p>
+            <a href="#cta" class="inline-block bg-white text-green-600 font-bold px-8 py-4 rounded-lg text-lg hover:bg-gray-100 transition">
+                Sí, Quiero La Fórmula
+            </a>
+            <p class="text-green-200 text-sm mt-6">
+                ⏰ Oferta de $9.000 termina en 24 horas
+            </p>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-gray-900 text-gray-400 py-12">
+        <div class="max-w-wrapper mx-auto px-6 text-center">
+            <p class="text-white font-semibold">© 2026 Ohana Energy Argentina</p>
+            <p class="text-sm mt-2">La fórmula secreta. Finalmente revelada.</p>
+        </div>
+    </footer>
+
+    <script>
+        function handleSubmit(e) {
+            e.preventDefault();
+            alert('En producción: esto enviaría el email a tu sistema de pagos');
+        }
+    </script>
+</body>
+</html>
