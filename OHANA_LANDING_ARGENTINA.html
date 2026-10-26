@@ -65,22 +65,23 @@
             gap: 20px;
         }
 
-        .whatsapp-chat {
-            background: linear-gradient(135deg, #ECE5DD 0%, #F5F5F0 100%);
+        .whatsapp-container {
+            background: #fff;
             border-radius: 16px;
-            padding: 14px 12px;
-            max-width: 340px;
+            padding: 0;
+            max-width: 360px;
             margin: 0 auto;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+            overflow: hidden;
         }
 
         .whatsapp-header {
+            background: linear-gradient(to bottom, #f8f8f8, #fff);
+            padding: 12px 14px;
+            border-bottom: 1px solid #e5e5e5;
             display: flex;
             gap: 10px;
-            margin-bottom: 14px;
             align-items: center;
-            padding-bottom: 12px;
-            border-bottom: 1px solid rgba(0,0,0,0.08);
         }
 
         .whatsapp-avatar {
@@ -89,7 +90,6 @@
             border-radius: 50%;
             flex-shrink: 0;
             object-fit: cover;
-            border: 2px solid #075E54;
         }
 
         .whatsapp-info {
@@ -100,7 +100,7 @@
             font-weight: 700;
             font-size: 0.95rem;
             color: #000;
-            margin-bottom: 2px;
+            margin: 0;
         }
 
         .whatsapp-time {
@@ -109,14 +109,19 @@
         }
 
         .whatsapp-messages {
+            padding: 12px 10px;
             display: flex;
             flex-direction: column;
-            gap: 6px;
+            gap: 2px;
+            background: #fff;
+            min-height: 200px;
         }
 
         .whatsapp-bubble {
             display: flex;
-            margin-bottom: 4px;
+            margin-bottom: 6px;
+            align-items: flex-end;
+            gap: 4px;
         }
 
         .whatsapp-bubble.user {
@@ -124,12 +129,13 @@
         }
 
         .whatsapp-text {
-            max-width: 88%;
+            max-width: 85%;
             padding: 8px 12px;
             border-radius: 18px;
             font-size: 0.9rem;
-            line-height: 1.4;
+            line-height: 1.45;
             word-wrap: break-word;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
         }
 
         .whatsapp-bubble.user .whatsapp-text {
@@ -139,10 +145,29 @@
         }
 
         .whatsapp-bubble.receiver .whatsapp-text {
-            background: white;
-            color: #333;
+            background: #f0f0f0;
+            color: #000;
             border-bottom-left-radius: 4px;
-            box-shadow: 0 1px 0.5px rgba(0,0,0,0.03);
+        }
+
+        .whatsapp-bubble.user .whatsapp-timestamp {
+            color: #999;
+            font-size: 0.75rem;
+            margin-right: 4px;
+            white-space: nowrap;
+        }
+
+        .whatsapp-bubble.receiver .whatsapp-timestamp {
+            color: #999;
+            font-size: 0.75rem;
+            margin-left: 4px;
+            white-space: nowrap;
+        }
+
+        .whatsapp-check {
+            color: #34B7F1;
+            font-size: 0.85rem;
+            font-weight: bold;
         }
 
         .testimonial-card {
@@ -514,26 +539,30 @@
             <div class="testimonial-grid">
                 <!-- Testimonio 1 - Martín -->
                 <div class="testimonial-card">
-                    <div class="whatsapp-chat">
+                    <div class="whatsapp-container">
                         <div class="whatsapp-header">
                             <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50' fill='%2310B981'/%3E%3Ctext x='50' y='60' font-size='50' fill='white' text-anchor='middle' font-weight='bold'%3EMG%3C/text%3E%3C/svg%3E" class="whatsapp-avatar">
                             <div class="whatsapp-info">
                                 <div class="whatsapp-name">Martín García</div>
-                                <div class="whatsapp-time">Hace 2 semanas</div>
+                                <div class="whatsapp-time">Online</div>
                             </div>
                         </div>
                         <div class="whatsapp-messages">
                             <div class="whatsapp-bubble user">
-                                <div class="whatsapp-text">Hermano, cambió mi vida 🙌</div>
+                                <div class="whatsapp-timestamp">9:45 p.m.</div>
+                                <div class="whatsapp-text">Hermano, cambió mi vida 🙌 <span class="whatsapp-check">✓✓</span></div>
                             </div>
                             <div class="whatsapp-bubble user">
-                                <div class="whatsapp-text">Antes a las 3 PM me moría de cansancio</div>
+                                <div class="whatsapp-timestamp">9:46 p.m.</div>
+                                <div class="whatsapp-text">Antes a las 3 PM me moría de cansancio <span class="whatsapp-check">✓✓</span></div>
                             </div>
                             <div class="whatsapp-bubble user">
-                                <div class="whatsapp-text">Ahora trabajo 10 horas sin bajón 💪</div>
+                                <div class="whatsapp-timestamp">9:46 p.m.</div>
+                                <div class="whatsapp-text">Ahora trabajo 10 horas sin bajón 💪 <span class="whatsapp-check">✓✓</span></div>
                             </div>
                             <div class="whatsapp-bubble user">
-                                <div class="whatsapp-text">Y duermo como nunca. Adiós al café</div>
+                                <div class="whatsapp-timestamp">9:47 p.m.</div>
+                                <div class="whatsapp-text">Y duermo como nunca. Adiós al café <span class="whatsapp-check">✓✓</span></div>
                             </div>
                         </div>
                     </div>
@@ -542,23 +571,26 @@
 
                 <!-- Testimonio 2 - Diego -->
                 <div class="testimonial-card">
-                    <div class="whatsapp-chat">
+                    <div class="whatsapp-container">
                         <div class="whatsapp-header">
                             <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50' fill='%23F59E0B'/%3E%3Ctext x='50' y='60' font-size='40' fill='white' text-anchor='middle' font-weight='bold'%3EDM%3C/text%3E%3C/svg%3E" class="whatsapp-avatar">
                             <div class="whatsapp-info">
                                 <div class="whatsapp-name">Diego Martínez</div>
-                                <div class="whatsapp-time">Hace 3 semanas</div>
+                                <div class="whatsapp-time">Online</div>
                             </div>
                         </div>
                         <div class="whatsapp-messages">
                             <div class="whatsapp-bubble user">
-                                <div class="whatsapp-text">Llevo 3 semanas y la diferencia es BRUTAL 🚀</div>
+                                <div class="whatsapp-timestamp">2:15 p.m.</div>
+                                <div class="whatsapp-text">Llevo 3 semanas y la diferencia es BRUTAL 🚀 <span class="whatsapp-check">✓✓</span></div>
                             </div>
                             <div class="whatsapp-bubble user">
-                                <div class="whatsapp-text">Productividad al 200%</div>
+                                <div class="whatsapp-timestamp">2:16 p.m.</div>
+                                <div class="whatsapp-text">Productividad al 200% <span class="whatsapp-check">✓✓</span></div>
                             </div>
                             <div class="whatsapp-bubble user">
-                                <div class="whatsapp-text">Mi jefe ya lo notó. Me pidió recomendaciones jajaja 😂</div>
+                                <div class="whatsapp-timestamp">2:17 p.m.</div>
+                                <div class="whatsapp-text">Mi jefe ya lo notó. Me pidió recomendaciones 😂 <span class="whatsapp-check">✓✓</span></div>
                             </div>
                         </div>
                     </div>
@@ -567,23 +599,26 @@
 
                 <!-- Testimonio 3 - Juan Pablo -->
                 <div class="testimonial-card">
-                    <div class="whatsapp-chat">
+                    <div class="whatsapp-container">
                         <div class="whatsapp-header">
                             <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50' fill='%2306B6D4'/%3E%3Ctext x='50' y='60' font-size='40' fill='white' text-anchor='middle' font-weight='bold'%3EJP%3C/text%3E%3C/svg%3E" class="whatsapp-avatar">
                             <div class="whatsapp-info">
                                 <div class="whatsapp-name">Juan Pablo</div>
-                                <div class="whatsapp-time">Hace 5 días</div>
+                                <div class="whatsapp-time">Online</div>
                             </div>
                         </div>
                         <div class="whatsapp-messages">
                             <div class="whatsapp-bubble user">
-                                <div class="whatsapp-text">Amigo, estaba hecho mierda de tanto café ☕</div>
+                                <div class="whatsapp-timestamp">8:20 p.m.</div>
+                                <div class="whatsapp-text">Amigo, estaba hecho mierda de tanto café ☕ <span class="whatsapp-check">✓✓</span></div>
                             </div>
                             <div class="whatsapp-bubble user">
-                                <div class="whatsapp-text">Con la fórmula me estabilicé totalmente</div>
+                                <div class="whatsapp-timestamp">8:21 p.m.</div>
+                                <div class="whatsapp-text">Con la fórmula me estabilicé totalmente <span class="whatsapp-check">✓✓</span></div>
                             </div>
                             <div class="whatsapp-bubble user">
-                                <div class="whatsapp-text">Mi pareja nota que estoy de MEJOR humor 😊</div>
+                                <div class="whatsapp-timestamp">8:22 p.m.</div>
+                                <div class="whatsapp-text">Mi pareja nota que estoy de MEJOR humor 😊 <span class="whatsapp-check">✓✓</span></div>
                             </div>
                         </div>
                     </div>
@@ -592,23 +627,26 @@
 
                 <!-- Testimonio 4 - Ana -->
                 <div class="testimonial-card">
-                    <div class="whatsapp-chat">
+                    <div class="whatsapp-container">
                         <div class="whatsapp-header">
                             <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50' fill='%238B5CF6'/%3E%3Ctext x='50' y='60' font-size='40' fill='white' text-anchor='middle' font-weight='bold'%3EAR%3C/text%3E%3C/svg%3E" class="whatsapp-avatar">
                             <div class="whatsapp-info">
                                 <div class="whatsapp-name">Ana Rodríguez</div>
-                                <div class="whatsapp-time">Hace 10 días</div>
+                                <div class="whatsapp-time">Online</div>
                             </div>
                         </div>
                         <div class="whatsapp-messages">
                             <div class="whatsapp-bubble user">
-                                <div class="whatsapp-text">No me lo esperaba la verdad 😅</div>
+                                <div class="whatsapp-timestamp">3:30 p.m.</div>
+                                <div class="whatsapp-text">No me lo esperaba la verdad 😅 <span class="whatsapp-check">✓✓</span></div>
                             </div>
                             <div class="whatsapp-bubble user">
-                                <div class="whatsapp-text">Día 5 ya sentía LA DIFERENCIA</div>
+                                <div class="whatsapp-timestamp">3:31 p.m.</div>
+                                <div class="whatsapp-text">Día 5 ya sentía LA DIFERENCIA <span class="whatsapp-check">✓✓</span></div>
                             </div>
                             <div class="whatsapp-bubble user">
-                                <div class="whatsapp-text">Energía de verdad, no esa ansiedumbre del café 🔋</div>
+                                <div class="whatsapp-timestamp">3:32 p.m.</div>
+                                <div class="whatsapp-text">Energía de verdad, no esa ansiedumbre del café 🔋 <span class="whatsapp-check">✓✓</span></div>
                             </div>
                         </div>
                     </div>
@@ -617,23 +655,26 @@
 
                 <!-- Testimonio 5 - Sofía -->
                 <div class="testimonial-card">
-                    <div class="whatsapp-chat">
+                    <div class="whatsapp-container">
                         <div class="whatsapp-header">
                             <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50' fill='%23EC4899'/%3E%3Ctext x='50' y='60' font-size='40' fill='white' text-anchor='middle' font-weight='bold'%3ESL%3C/text%3E%3C/svg%3E" class="whatsapp-avatar">
                             <div class="whatsapp-info">
                                 <div class="whatsapp-name">Sofía López</div>
-                                <div class="whatsapp-time">Hace 1 semana</div>
+                                <div class="whatsapp-time">Online</div>
                             </div>
                         </div>
                         <div class="whatsapp-messages">
                             <div class="whatsapp-bubble user">
-                                <div class="whatsapp-text">30 días y estoy IRRECONOCIBLE</div>
+                                <div class="whatsapp-timestamp">7:45 p.m.</div>
+                                <div class="whatsapp-text">30 días y estoy IRRECONOCIBLE <span class="whatsapp-check">✓✓</span></div>
                             </div>
                             <div class="whatsapp-bubble user">
-                                <div class="whatsapp-text">Me despierto con energía eso no me pasaba desde hace años ⚡</div>
+                                <div class="whatsapp-timestamp">7:46 p.m.</div>
+                                <div class="whatsapp-text">Me despierto con energía eso no me pasaba desde hace años ⚡ <span class="whatsapp-check">✓✓</span></div>
                             </div>
                             <div class="whatsapp-bubble user">
-                                <div class="whatsapp-text">Y todos preguntan qué me pasó jajaja</div>
+                                <div class="whatsapp-timestamp">7:47 p.m.</div>
+                                <div class="whatsapp-text">Y todos preguntan qué me pasó jajaja <span class="whatsapp-check">✓✓</span></div>
                             </div>
                         </div>
                     </div>
@@ -642,23 +683,26 @@
 
                 <!-- Testimonio 6 - Carlos -->
                 <div class="testimonial-card">
-                    <div class="whatsapp-chat">
+                    <div class="whatsapp-container">
                         <div class="whatsapp-header">
                             <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50' fill='%2306C6D4'/%3E%3Ctext x='50' y='60' font-size='40' fill='white' text-anchor='middle' font-weight='bold'%3ECV%3C/text%3E%3C/svg%3E" class="whatsapp-avatar">
                             <div class="whatsapp-info">
                                 <div class="whatsapp-name">Carlos Vera</div>
-                                <div class="whatsapp-time">Hace 4 días</div>
+                                <div class="whatsapp-time">Online</div>
                             </div>
                         </div>
                         <div class="whatsapp-messages">
                             <div class="whatsapp-bubble user">
-                                <div class="whatsapp-text">Boludo, esto es SERIO 💪</div>
+                                <div class="whatsapp-timestamp">4:10 p.m.</div>
+                                <div class="whatsapp-text">Boludo, esto es SERIO 💪 <span class="whatsapp-check">✓✓</span></div>
                             </div>
                             <div class="whatsapp-bubble user">
-                                <div class="whatsapp-text">Soy vendedor y antes a las 3 PM estaba muerto</div>
+                                <div class="whatsapp-timestamp">4:11 p.m.</div>
+                                <div class="whatsapp-text">Soy vendedor y antes a las 3 PM estaba muerto <span class="whatsapp-check">✓✓</span></div>
                             </div>
                             <div class="whatsapp-bubble user">
-                                <div class="whatsapp-text">Ahora cierro ventas hasta las 8 PM sin problema</div>
+                                <div class="whatsapp-timestamp">4:12 p.m.</div>
+                                <div class="whatsapp-text">Ahora cierro ventas hasta las 8 PM sin problema <span class="whatsapp-check">✓✓</span></div>
                             </div>
                         </div>
                     </div>
@@ -667,23 +711,26 @@
 
                 <!-- Testimonio 7 - Valentina -->
                 <div class="testimonial-card">
-                    <div class="whatsapp-chat">
+                    <div class="whatsapp-container">
                         <div class="whatsapp-header">
                             <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50' fill='%2310B981'/%3E%3Ctext x='50' y='60' font-size='40' fill='white' text-anchor='middle' font-weight='bold'%3EVZ%3C/text%3E%3C/svg%3E" class="whatsapp-avatar">
                             <div class="whatsapp-info">
                                 <div class="whatsapp-name">Valentina Zuñiga</div>
-                                <div class="whatsapp-time">Hace 1 semana</div>
+                                <div class="whatsapp-time">Online</div>
                             </div>
                         </div>
                         <div class="whatsapp-messages">
                             <div class="whatsapp-bubble user">
-                                <div class="whatsapp-text">Mamá, la fórmula es lo mejor 🙌</div>
+                                <div class="whatsapp-timestamp">11:20 p.m.</div>
+                                <div class="whatsapp-text">Mamá, la fórmula es lo mejor 🙌 <span class="whatsapp-check">✓✓</span></div>
                             </div>
                             <div class="whatsapp-bubble user">
-                                <div class="whatsapp-text">Estudio y trabajo, necesitaba energía real</div>
+                                <div class="whatsapp-timestamp">11:21 p.m.</div>
+                                <div class="whatsapp-text">Estudio y trabajo, necesitaba energía real <span class="whatsapp-check">✓✓</span></div>
                             </div>
                             <div class="whatsapp-bubble user">
-                                <div class="whatsapp-text">Con esto rindes TODO EL DÍA sin crash 💯</div>
+                                <div class="whatsapp-timestamp">11:22 p.m.</div>
+                                <div class="whatsapp-text">Con esto rindes TODO EL DÍA sin crash 💯 <span class="whatsapp-check">✓✓</span></div>
                             </div>
                         </div>
                     </div>
