@@ -66,45 +66,83 @@
         }
 
         .whatsapp-chat {
-            background: #f5f5f5;
-            border-radius: 12px;
-            padding: 16px;
-            max-width: 320px;
+            background: linear-gradient(135deg, #ECE5DD 0%, #F5F5F0 100%);
+            border-radius: 16px;
+            padding: 14px 12px;
+            max-width: 340px;
             margin: 0 auto;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
 
-        .whatsapp-message {
-            margin-bottom: 12px;
+        .whatsapp-header {
             display: flex;
-            gap: 8px;
+            gap: 10px;
+            margin-bottom: 14px;
+            align-items: center;
+            padding-bottom: 12px;
+            border-bottom: 1px solid rgba(0,0,0,0.08);
         }
 
         .whatsapp-avatar {
-            width: 36px;
-            height: 36px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
             flex-shrink: 0;
             object-fit: cover;
+            border: 2px solid #075E54;
         }
 
-        .whatsapp-content {
+        .whatsapp-info {
             flex: 1;
         }
 
         .whatsapp-name {
-            font-weight: 600;
-            font-size: 0.9rem;
-            margin-bottom: 4px;
+            font-weight: 700;
+            font-size: 0.95rem;
             color: #000;
+            margin-bottom: 2px;
+        }
+
+        .whatsapp-time {
+            font-size: 0.75rem;
+            color: #999;
+        }
+
+        .whatsapp-messages {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .whatsapp-bubble {
+            display: flex;
+            margin-bottom: 4px;
+        }
+
+        .whatsapp-bubble.user {
+            justify-content: flex-end;
         }
 
         .whatsapp-text {
-            background: white;
+            max-width: 88%;
             padding: 8px 12px;
-            border-radius: 8px;
+            border-radius: 18px;
             font-size: 0.9rem;
             line-height: 1.4;
+            word-wrap: break-word;
+        }
+
+        .whatsapp-bubble.user .whatsapp-text {
+            background: #DCF8C6;
+            color: #000;
+            border-bottom-right-radius: 4px;
+        }
+
+        .whatsapp-bubble.receiver .whatsapp-text {
+            background: white;
             color: #333;
+            border-bottom-left-radius: 4px;
+            box-shadow: 0 1px 0.5px rgba(0,0,0,0.03);
         }
 
         .testimonial-card {
@@ -474,110 +512,188 @@
             <h2 class="text-center text-gray-900 mb-16">Lo que dicen nuestros clientes</h2>
 
             <div class="testimonial-grid">
-                <!-- Testimonio 1 -->
+                <!-- Testimonio 1 - Martín -->
                 <div class="testimonial-card">
                     <div class="whatsapp-chat">
-                        <div class="whatsapp-message">
+                        <div class="whatsapp-header">
                             <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50' fill='%2310B981'/%3E%3Ctext x='50' y='60' font-size='50' fill='white' text-anchor='middle' font-weight='bold'%3EMG%3C/text%3E%3C/svg%3E" class="whatsapp-avatar">
-                            <div class="whatsapp-content">
+                            <div class="whatsapp-info">
                                 <div class="whatsapp-name">Martín García</div>
-                                <div class="whatsapp-text">Hermano, cambió mi vida. Antes a las 3 PM me moría de cansancio. Ahora trabajo 10 horas sin bajón 💪</div>
+                                <div class="whatsapp-time">Hace 2 semanas</div>
                             </div>
                         </div>
-                        <div class="whatsapp-message" style="margin-top: 8px;">
-                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50' fill='%2310B981'/%3E%3Ctext x='50' y='60' font-size='50' fill='white' text-anchor='middle' font-weight='bold'%3EMG%3C/text%3E%3C/svg%3E" class="whatsapp-avatar">
-                            <div class="whatsapp-content">
-                                <div class="whatsapp-text">Y lo mejor: duermo como nunca. Adiós al café que me destruía</div>
+                        <div class="whatsapp-messages">
+                            <div class="whatsapp-bubble user">
+                                <div class="whatsapp-text">Hermano, cambió mi vida 🙌</div>
                             </div>
-                        </div>
-                    </div>
-                    <p class="text-gray-600 text-sm mt-4 text-center">Empleado, Buenos Aires</p>
-                </div>
-
-                <!-- Testimonio 2 -->
-                <div class="testimonial-card">
-                    <div class="whatsapp-chat">
-                        <div class="whatsapp-message">
-                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50' fill='%23F59E0B'/%3E%3Ctext x='50' y='60' font-size='40' fill='white' text-anchor='middle' font-weight='bold'%3ECM%3C/text%3E%3C/svg%3E" class="whatsapp-avatar">
-                            <div class="whatsapp-content">
-                                <div class="whatsapp-name">Carlota Müller</div>
-                                <div class="whatsapp-text">Llevo 3 semanas y la diferencia es BRUTAL. Productividad al 200%. Mis clientes notan que rindo mucho más 📈</div>
+                            <div class="whatsapp-bubble user">
+                                <div class="whatsapp-text">Antes a las 3 PM me moría de cansancio</div>
                             </div>
-                        </div>
-                        <div class="whatsapp-message" style="margin-top: 8px;">
-                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50' fill='%23F59E0B'/%3E%3Ctext x='50' y='60' font-size='40' fill='white' text-anchor='middle' font-weight='bold'%3ECM%3C/text%3E%3C/svg%3E" class="whatsapp-avatar">
-                            <div class="whatsapp-content">
-                                <div class="whatsapp-text">El mejor dinero invertido en mí misma</div>
+                            <div class="whatsapp-bubble user">
+                                <div class="whatsapp-text">Ahora trabajo 10 horas sin bajón 💪</div>
+                            </div>
+                            <div class="whatsapp-bubble user">
+                                <div class="whatsapp-text">Y duermo como nunca. Adiós al café</div>
                             </div>
                         </div>
                     </div>
-                    <p class="text-gray-600 text-sm mt-4 text-center">Emprendedora, CABA</p>
+                    <p class="text-gray-600 text-sm mt-4 text-center font-semibold">Empleado, Buenos Aires</p>
                 </div>
 
-                <!-- Testimonio 3 -->
+                <!-- Testimonio 2 - Diego -->
                 <div class="testimonial-card">
                     <div class="whatsapp-chat">
-                        <div class="whatsapp-message">
+                        <div class="whatsapp-header">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50' fill='%23F59E0B'/%3E%3Ctext x='50' y='60' font-size='40' fill='white' text-anchor='middle' font-weight='bold'%3EDM%3C/text%3E%3C/svg%3E" class="whatsapp-avatar">
+                            <div class="whatsapp-info">
+                                <div class="whatsapp-name">Diego Martínez</div>
+                                <div class="whatsapp-time">Hace 3 semanas</div>
+                            </div>
+                        </div>
+                        <div class="whatsapp-messages">
+                            <div class="whatsapp-bubble user">
+                                <div class="whatsapp-text">Llevo 3 semanas y la diferencia es BRUTAL 🚀</div>
+                            </div>
+                            <div class="whatsapp-bubble user">
+                                <div class="whatsapp-text">Productividad al 200%</div>
+                            </div>
+                            <div class="whatsapp-bubble user">
+                                <div class="whatsapp-text">Mi jefe ya lo notó. Me pidió recomendaciones jajaja 😂</div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 text-sm mt-4 text-center font-semibold">Emprendedor, CABA</p>
+                </div>
+
+                <!-- Testimonio 3 - Juan Pablo -->
+                <div class="testimonial-card">
+                    <div class="whatsapp-chat">
+                        <div class="whatsapp-header">
                             <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50' fill='%2306B6D4'/%3E%3Ctext x='50' y='60' font-size='40' fill='white' text-anchor='middle' font-weight='bold'%3EJP%3C/text%3E%3C/svg%3E" class="whatsapp-avatar">
-                            <div class="whatsapp-content">
-                                <div class="whatsapp-name">Juan Pablo Ruiz</div>
-                                <div class="whatsapp-text">Estaba hecho mierda de tanto café. Con esto me estabilicé totalmente. Mi pareja nota que estoy de mejor humor 😊</div>
+                            <div class="whatsapp-info">
+                                <div class="whatsapp-name">Juan Pablo</div>
+                                <div class="whatsapp-time">Hace 5 días</div>
                             </div>
                         </div>
-                        <div class="whatsapp-message" style="margin-top: 8px;">
-                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50' fill='%2306B6D4'/%3E%3Ctext x='50' y='60' font-size='40' fill='white' text-anchor='middle' font-weight='bold'%3EJP%3C/text%3E%3C/svg%3E" class="whatsapp-avatar">
-                            <div class="whatsapp-content">
-                                <div class="whatsapp-text">Sin efectos secundarios. Pura calidad</div>
+                        <div class="whatsapp-messages">
+                            <div class="whatsapp-bubble user">
+                                <div class="whatsapp-text">Amigo, estaba hecho mierda de tanto café ☕</div>
+                            </div>
+                            <div class="whatsapp-bubble user">
+                                <div class="whatsapp-text">Con la fórmula me estabilicé totalmente</div>
+                            </div>
+                            <div class="whatsapp-bubble user">
+                                <div class="whatsapp-text">Mi pareja nota que estoy de MEJOR humor 😊</div>
                             </div>
                         </div>
                     </div>
-                    <p class="text-gray-600 text-sm mt-4 text-center">Estudiante avanzado, Rosario</p>
+                    <p class="text-gray-600 text-sm mt-4 text-center font-semibold">Desarrollador, Rosario</p>
                 </div>
 
-                <!-- Testimonio 4 -->
+                <!-- Testimonio 4 - Ana -->
                 <div class="testimonial-card">
                     <div class="whatsapp-chat">
-                        <div class="whatsapp-message">
+                        <div class="whatsapp-header">
                             <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50' fill='%238B5CF6'/%3E%3Ctext x='50' y='60' font-size='40' fill='white' text-anchor='middle' font-weight='bold'%3EAR%3C/text%3E%3C/svg%3E" class="whatsapp-avatar">
-                            <div class="whatsapp-content">
+                            <div class="whatsapp-info">
                                 <div class="whatsapp-name">Ana Rodríguez</div>
-                                <div class="whatsapp-text">No me lo esperaba. Día 5 ya sentía la diferencia. Tengo energía de verdad, no esa ansiedumbre del café 🔋</div>
+                                <div class="whatsapp-time">Hace 10 días</div>
                             </div>
                         </div>
-                        <div class="whatsapp-message" style="margin-top: 8px;">
-                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50' fill='%238B5CF6'/%3E%3Ctext x='50' y='60' font-size='40' fill='white' text-anchor='middle' font-weight='bold'%3EAR%3C/text%3E%3C/svg%3E" class="whatsapp-avatar">
-                            <div class="whatsapp-content">
-                                <div class="whatsapp-text">Y duermo mejor que nunca en años</div>
+                        <div class="whatsapp-messages">
+                            <div class="whatsapp-bubble user">
+                                <div class="whatsapp-text">No me lo esperaba la verdad 😅</div>
+                            </div>
+                            <div class="whatsapp-bubble user">
+                                <div class="whatsapp-text">Día 5 ya sentía LA DIFERENCIA</div>
+                            </div>
+                            <div class="whatsapp-bubble user">
+                                <div class="whatsapp-text">Energía de verdad, no esa ansiedumbre del café 🔋</div>
                             </div>
                         </div>
                     </div>
-                    <p class="text-gray-600 text-sm mt-4 text-center">Freelancer, Mendoza</p>
+                    <p class="text-gray-600 text-sm mt-4 text-center font-semibold">Freelancer, Mendoza</p>
                 </div>
 
-                <!-- Testimonio 5 -->
+                <!-- Testimonio 5 - Sofía -->
                 <div class="testimonial-card">
                     <div class="whatsapp-chat">
-                        <div class="whatsapp-message">
+                        <div class="whatsapp-header">
                             <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50' fill='%23EC4899'/%3E%3Ctext x='50' y='60' font-size='40' fill='white' text-anchor='middle' font-weight='bold'%3ESL%3C/text%3E%3C/svg%3E" class="whatsapp-avatar">
-                            <div class="whatsapp-content">
+                            <div class="whatsapp-info">
                                 <div class="whatsapp-name">Sofía López</div>
-                                <div class="whatsapp-text">30 días y estoy irreconocible. Me despierto con energía (eso no me pasaba desde hace años) ⚡</div>
+                                <div class="whatsapp-time">Hace 1 semana</div>
                             </div>
                         </div>
-                        <div class="whatsapp-message" style="margin-top: 8px;">
-                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50' fill='%23EC4899'/%3E%3Ctext x='50' y='60' font-size='40' fill='white' text-anchor='middle' font-weight='bold'%3ESL%3C/text%3E%3C/svg%3E" class="whatsapp-avatar">
-                            <div class="whatsapp-content">
-                                <div class="whatsapp-text">Todos a mi alrededor preguntan qué me pasó. Pero es solo la fórmula 😎</div>
+                        <div class="whatsapp-messages">
+                            <div class="whatsapp-bubble user">
+                                <div class="whatsapp-text">30 días y estoy IRRECONOCIBLE</div>
+                            </div>
+                            <div class="whatsapp-bubble user">
+                                <div class="whatsapp-text">Me despierto con energía eso no me pasaba desde hace años ⚡</div>
+                            </div>
+                            <div class="whatsapp-bubble user">
+                                <div class="whatsapp-text">Y todos preguntan qué me pasó jajaja</div>
                             </div>
                         </div>
                     </div>
-                    <p class="text-gray-600 text-sm mt-4 text-center">Asesora, Córdoba</p>
+                    <p class="text-gray-600 text-sm mt-4 text-center font-semibold">Asesora, Córdoba</p>
+                </div>
+
+                <!-- Testimonio 6 - Carlos -->
+                <div class="testimonial-card">
+                    <div class="whatsapp-chat">
+                        <div class="whatsapp-header">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50' fill='%2306C6D4'/%3E%3Ctext x='50' y='60' font-size='40' fill='white' text-anchor='middle' font-weight='bold'%3ECV%3C/text%3E%3C/svg%3E" class="whatsapp-avatar">
+                            <div class="whatsapp-info">
+                                <div class="whatsapp-name">Carlos Vera</div>
+                                <div class="whatsapp-time">Hace 4 días</div>
+                            </div>
+                        </div>
+                        <div class="whatsapp-messages">
+                            <div class="whatsapp-bubble user">
+                                <div class="whatsapp-text">Boludo, esto es SERIO 💪</div>
+                            </div>
+                            <div class="whatsapp-bubble user">
+                                <div class="whatsapp-text">Soy vendedor y antes a las 3 PM estaba muerto</div>
+                            </div>
+                            <div class="whatsapp-bubble user">
+                                <div class="whatsapp-text">Ahora cierro ventas hasta las 8 PM sin problema</div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 text-sm mt-4 text-center font-semibold">Vendedor, La Plata</p>
+                </div>
+
+                <!-- Testimonio 7 - Valentina -->
+                <div class="testimonial-card">
+                    <div class="whatsapp-chat">
+                        <div class="whatsapp-header">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50' fill='%2310B981'/%3E%3Ctext x='50' y='60' font-size='40' fill='white' text-anchor='middle' font-weight='bold'%3EVZ%3C/text%3E%3C/svg%3E" class="whatsapp-avatar">
+                            <div class="whatsapp-info">
+                                <div class="whatsapp-name">Valentina Zuñiga</div>
+                                <div class="whatsapp-time">Hace 1 semana</div>
+                            </div>
+                        </div>
+                        <div class="whatsapp-messages">
+                            <div class="whatsapp-bubble user">
+                                <div class="whatsapp-text">Mamá, la fórmula es lo mejor 🙌</div>
+                            </div>
+                            <div class="whatsapp-bubble user">
+                                <div class="whatsapp-text">Estudio y trabajo, necesitaba energía real</div>
+                            </div>
+                            <div class="whatsapp-bubble user">
+                                <div class="whatsapp-text">Con esto rindes TODO EL DÍA sin crash 💯</div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 text-sm mt-4 text-center font-semibold">Estudiante, Mar del Plata</p>
                 </div>
             </div>
 
             <div class="text-center mt-16">
                 <p class="text-gray-600 text-lg">
-                    <strong>Más de 1.200 argentinos</strong> ya descubrieron la fórmula y transformaron su energía
+                    <strong>Más de 1.300 argentinos</strong> ya descubrieron la fórmula y transformaron su energía
                 </p>
             </div>
         </div>
